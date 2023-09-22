@@ -34,7 +34,8 @@ public class InitBlocksWD {
             () -> new FacingBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.WOOL).noOcclusion()), ModCreativeTab.BUSHES);
     public static final RegistryObject<Block> POISON_BERRY = registerBlockWithoutBlockItem("poison_berry",
             () -> new PoisonBerries(BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH)));
-
+    public static final RegistryObject<Block> FREEZE_BERRIES = registerBlockWithoutBlockItem("freeze_berries",
+            () -> new FreezeBerries(BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH)));
     public static final RegistryObject<Block> CHARMING_BERRIES_BLOCK = registerBlockWithoutBlockItem("charming_berries_block",
             () -> new CharmingBerries(BlockBehaviour.Properties.of(Material.PLANT).randomTicks().noCollission().sound(SoundType.SWEET_BERRY_BUSH)));
 
@@ -56,6 +57,10 @@ public class InitBlocksWD {
             () -> new Orhidea(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> POTTED_SPATIAL_ORCHID = registerBlockWithoutBlockItem("potted_spatial_orchid",
             () -> new FlowerPotBlock(SPATIAL_ORCHID.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> MEADOW_GOLDEN_FLOWER = registerBlockWithoutBlockItem("meadow_golden_flower",
+            () -> new GoldenRose(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+    public static final RegistryObject<Block> POTTED_MEADOW_GOLDEN_FLOWER = registerBlockWithoutBlockItem("potted_meadow_golden_flower",
+            () -> new FlowerPotBlock(MEADOW_GOLDEN_FLOWER.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
     public static final RegistryObject<Block> DRAGOLIT_GRID = registerBlockWithoutBlockItem("dragolit_grid",
             () -> new IronBarsBlock(BlockBehaviour.Properties.of(Material.METAL).sound(SoundType.METAL).strength(2.5F).noOcclusion()));
     public static final RegistryObject<Block> DRAGOLIT_BLOCK = registerBlockWithoutBlockItem("dragolit_block",
@@ -141,7 +146,14 @@ public class InitBlocksWD {
                     .randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> POTTED_APPLE_SAPLING = registerBlockWithoutBlockItem("potted_apple_sapling",
             () -> new FlowerPotBlock(APPLE_SAPLING.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
-
+    public static final RegistryObject<Block> WIZARD_PIE = registerBlock("wizard_pie",
+            () -> new WizardPie(BlockBehaviour.Properties.of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL).randomTicks()), ModCreativeTab.BUSHES);
+    public static final RegistryObject<Block> A_BLOCK_OF_SPARKING_POLLEN = registerBlock("a_block_of_sparkling_pollen",
+            () -> new FallingBlock(BlockBehaviour.Properties.of(Material.SAND).strength(0.2F, 30)
+                    .sound(SoundType.SAND)), ModCreativeTab.BUSHES);
+    public static final RegistryObject<Block> WARPED_WART = registerBlockWithoutBlockItem("warped_wart",
+            () -> new WarpedWartBlock(BlockBehaviour.Properties.of(Material.PLANT, MaterialColor.COLOR_RED)
+                    .noCollission().randomTicks().sound(SoundType.NETHER_WART)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

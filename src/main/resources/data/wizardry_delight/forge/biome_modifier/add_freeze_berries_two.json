@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:snowy_plains",
+  "features": "wizardry_delight:freeze_berries_placed",
+  "step": "vegetal_decoration"
+}

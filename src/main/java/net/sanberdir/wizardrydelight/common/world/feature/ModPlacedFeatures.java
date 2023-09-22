@@ -46,7 +46,12 @@ public class ModPlacedFeatures {
     public static final RegistryObject<PlacedFeature> SPATIAL_ORCHID_PLACED = PLACED_FEATURES.register("spatial_orchid_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.SPATIAL_ORCHID.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(15),
                     InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome())));
-
+    public static final RegistryObject<PlacedFeature> MEADOW_GOLDEN_FLOWER_PLACED = PLACED_FEATURES.register("meadow_golden_flower_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.MEADOW_GOLDEN_FLOWER.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(30),
+                    InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome())));
+    public static final RegistryObject<PlacedFeature> FREEZE_BERRIES_PLACED = PLACED_FEATURES.register("freeze_berries_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.FREEZE_BERRIES.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(3),
+                    InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome())));
     public static List<PlacementModifier> orePlacement(PlacementModifier p_195347_, PlacementModifier p_195348_) {
         return List.of(p_195347_, InSquarePlacement.spread(), p_195348_, BiomeFilter.biome());
     }

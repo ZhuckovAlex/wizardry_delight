@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_forest",
+  "features": "wizardry_delight:meadow_golden_flower_placed",
+  "step": "vegetal_decoration"
+}
