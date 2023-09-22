@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_taiga",
+  "features": "wizardry_delight:charming_berries_placed",
+  "step": "vegetal_decoration"
+}

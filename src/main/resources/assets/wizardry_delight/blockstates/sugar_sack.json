@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "wizardry_delight:block/sugar_sack"
+    },
+    "facing=east": {
+      "model": "wizardry_delight:block/sugar_sack",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "wizardry_delight:block/sugar_sack",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "wizardry_delight:block/sugar_sack",
+      "y": 270
+    }
+  }
+}

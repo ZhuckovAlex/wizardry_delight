@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wizard_pie",
+  "key": {
+    "A": {
+      "item": "minecraft:cocoa_beans"
+    },
+    "B": {
+      "item": "minecraft:wheat"
+    },
+    "C": {
+      "item": "wizardry_delight:sparkling_pollen"
+    },
+    "#": {
+      "item": "wizardry_delight:black_berries"
+    },
+    "D": {
+      "item": "wizardry_delight:sugar_refined"
+    },
+    "E": {
+      "item": "wizardry_delight:a_drop_of_love"
+    }
+  },
+  "pattern": [
+    "C#C",
+    "DED",
+    "BAB"
+  ],
+  "result": {
+    "count": 1,
+    "item": "wizardry_delight:wizard_pie"
+  }
+}

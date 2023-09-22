@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:soul_sand_valley",
+  "features": "wizardry_delight:rose_of_ghosty_tears_ore_placed",
+  "step": "vegetal_decoration"
+}

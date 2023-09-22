@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:beach",
+  "features": "wizardry_delight:coastal_steep_placed",
+  "step": "vegetal_decoration"
+}

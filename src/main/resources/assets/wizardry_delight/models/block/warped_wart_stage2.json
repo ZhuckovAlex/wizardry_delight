@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "wizardry_delight:block/warped_wart_stage4"
+  },"render_type": "cutout"
+}

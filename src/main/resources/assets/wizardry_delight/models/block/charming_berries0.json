@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "wizardry_delight:block/charming_berries0"
+  },
+  "render_type": "cutout"
+}

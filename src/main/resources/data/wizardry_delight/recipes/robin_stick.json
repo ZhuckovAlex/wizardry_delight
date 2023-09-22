@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "robin_stick",
+  "key": {
+    "A": {
+      "item": "minecraft:apple"
+    },
+    "B": {
+      "item": "minecraft:stick"
+    },
+    "C": {
+      "item": "minecraft:nether_star"
+    },
+    "#": {
+      "item": "wizardry_delight:clear_dragolit_nugget"
+    }
+  },
+  "pattern": [
+    " C ",
+    "#B#",
+    " A "
+  ],
+  "result": {
+    "count": 1,
+    "item": "wizardry_delight:robin_stick"
+  }
+}

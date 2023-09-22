@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:swamp",
+  "features": "wizardry_delight:poison_berry_placed",
+  "step": "vegetal_decoration"
+}

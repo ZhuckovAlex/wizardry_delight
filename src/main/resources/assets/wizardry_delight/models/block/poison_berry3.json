@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "wizardry_delight:block/poison_berry3"
+  },
+  "render_type": "cutout"
+}

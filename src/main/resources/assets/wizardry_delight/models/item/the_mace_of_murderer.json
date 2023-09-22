@@ -1,0 +1,18 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "wizardry_delight:item/the_mace_of_murderer_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "wizardry_delight:item/the_mace_of_murderer_2d"
+    },
+    "ground": {
+      "parent": "wizardry_delight:item/the_mace_of_murderer_2d"
+    },
+    "fixed": {
+      "parent": "wizardry_delight:item/the_mace_of_murderer_2d"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/tinted_cross",
+  "textures": {
+    "cross": "wizardry_delight:block/fire_stem"
+  },
+  "render_type": "cutout"
+}

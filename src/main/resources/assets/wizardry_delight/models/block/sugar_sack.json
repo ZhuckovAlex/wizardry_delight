@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "wizardry_delight:block/sugar_sack_bottom",
+    "up": "wizardry_delight:block/sugar_sack_top",
+    "north": "wizardry_delight:block/sugar_sack_side",
+    "east": "wizardry_delight:block/sugar_sack_side_tied",
+    "south": "wizardry_delight:block/sugar_sack_side",
+    "west": "wizardry_delight:block/sugar_sack_side",
+    "particle": "wizardry_delight:block/sugar_sack_side"
+  },
+  "render_type": "solid"
+}

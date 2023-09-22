@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_plains",
+  "features": "wizardry_delight:apple_placed",
+  "step": "vegetal_decoration"
+}

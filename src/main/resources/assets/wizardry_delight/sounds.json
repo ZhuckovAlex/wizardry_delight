@@ -1,0 +1,47 @@
+{
+  "nyamnyam": {
+    "subtitle": "sounds.wizardry_delight.nyamnyam",
+    "sounds": [
+      {
+        "name": "wizardry_delight:nyamnyam"
+      },
+      {
+        "name": "wizardry_delight:nyamnyam1"
+      },
+      {
+        "name": "wizardry_delight:nyamnyam2"
+      }
+    ]
+  },
+  "nyamnyam_end": {
+    "subtitle": "sounds.wizardry_delight.nyamnyam",
+    "sounds": [
+      {
+        "name": "wizardry_delight:nyamnyam_end"
+      },
+      {
+        "name": "wizardry_delight:nyamnyam_end1"
+      },
+      {
+        "name": "wizardry_delight:nyamnyam_end2"
+      }
+    ]
+  },
+  "robin_stick": {
+    "subtitle": "sounds.wizardry_delight.robin_stick",
+    "sounds": [
+      {
+        "name": "wizardry_delight:robin_stick"
+      }
+    ]
+  },
+  "wizardry_delight_jam": {
+    "subtitle": "sounds.wizardry_delight.wizardry_delight_jam",
+    "sounds": [
+      {
+       "name": "wizardry_delight:wizardry_delight_jam",
+       "stream": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "wizardry_delight:raw_goats_meat"
+  },
+  "result": "wizardry_delight:cocked_goats_meat"
+}

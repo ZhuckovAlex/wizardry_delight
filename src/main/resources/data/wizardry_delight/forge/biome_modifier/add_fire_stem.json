@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": "wizardry_delight:fire_stem_ore_placed",
+  "step": "vegetal_decoration"
+}

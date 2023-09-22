@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "wizardry_delight:mushrooms"
+    },
+    {
+      "tag": "minecraft:mushrooms"
+    },
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "wizardry_delight:mushroom_on_stick"
+  }
+}
