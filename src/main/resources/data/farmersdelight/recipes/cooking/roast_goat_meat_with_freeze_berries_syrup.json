@@ -1,0 +1,46 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 600,
+  "experience": 3,
+  "container": {
+    "item": "minecraft:bowl"
+  },
+  "ingredients": [
+    [
+      {
+        "item": "farmersdelight:onion"
+      },
+      {
+        "item": "minecraft:carrot"
+      },
+      {
+        "item": "minecraft:potato"
+      },
+      {
+        "tag": "forge:crops/cabbage"
+      },
+      {
+        "tag": "minecraft:mushrooms"
+      },
+      {
+        "item": "minecraft:beetroot"
+      }
+    ],
+    {
+      "item": "wizardry_delight:freeze_jam"
+    },
+    [
+      {
+        "item": "wizardry_delight:raw_slising_goats_meat"
+      },
+      {
+        "item": "wizardry_delight:raw_goats_meat"
+      }
+    ]
+  ],
+  "recipe_book_tab": "roast_goat_meat_with_freeze_berries_syrup",
+  "result": {
+    "item": "wizardry_delight:roast_goat_meat_with_freeze_berries_syrup",
+    "count": 1
+  }
+}

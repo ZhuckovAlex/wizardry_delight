@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "wizardry_delight:raw_goats_meat"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "wizardry_delight:raw_slising_goats_meat"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

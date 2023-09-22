@@ -1,0 +1,32 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 800,
+  "experience": 0.50,
+  "container": {
+    "item": "wizardry_delight:jar"
+  },
+  "ingredients": [
+    {
+      "item": "wizardry_delight:black_berries"
+    },
+    {
+      "item": "wizardry_delight:black_berries"
+    },
+    {
+      "item": "wizardry_delight:black_berries"
+    },
+    {
+      "item": "wizardry_delight:sugar_refined"
+    },
+    {
+      "tag": "minecraft:candles"
+    },
+    {
+      "item": "wizardry_delight:sugar_refined"
+    }
+  ],
+  "recipe_book_tab": "jam",
+  "result": {
+    "item": "wizardry_delight:charnika_jam"
+  }
+}

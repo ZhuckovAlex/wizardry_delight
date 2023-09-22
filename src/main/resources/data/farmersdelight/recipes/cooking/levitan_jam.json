@@ -1,0 +1,33 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 2400,
+  "experience": 3.0,
+  "container": {
+    "item": "wizardry_delight:jar"
+  },
+  "ingredients": [
+    {
+      "item": "wizardry_delight:sugar_refined"
+    },
+    {
+      "item": "minecraft:firework_rocket"
+    },
+    {
+      "item": "wizardry_delight:sugar_refined"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    },
+    {
+      "item": "minecraft:writable_book"
+    },
+    {
+      "item": "minecraft:golden_carrot"
+    }
+  ],
+  "recipe_book_tab": "jam",
+  "result": {
+    "item": "wizardry_delight:levitan_jam",
+    "count": 3
+  }
+}
