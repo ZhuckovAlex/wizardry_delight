@@ -32,7 +32,7 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().fast()
                     .effect(new MobEffectInstance(MobEffects.HARM, 10, 0), 1F)
                     .build())));
-    public static final RegistryObject<Item> CHEESE = ITEMS.register("chese",
+    public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese",
             () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> CHEESE_1 = ITEMS.register("cheese_1",
