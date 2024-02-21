@@ -232,8 +232,6 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> WIZARDRY_DELIGHT_JAM = ITEMS.register("wizardry_delight_jam",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
-    public static final RegistryObject<Item> STAR_BALL = ITEMS.register("star_ball",
-            () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BICKLED_SLISH_KEBAB = ITEMS.register("pickled_shish_kebab",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> POISON_BERRY_JAM = ITEMS.register("poison_berry_jam",
@@ -263,7 +261,9 @@ public class InitItemsWD {
     public static final RegistryObject<Item> RAW_HORSE = ITEMS.register("raw_horse",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> ROBIN_STICK = ITEMS.register("robin_stick",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+            () -> new StarBallItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+    public static final RegistryObject<Item> STAR_BALL = ITEMS.register("star_ball",
+            () -> new StarBallItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> HANDFUL_NETHER = ITEMS.register("handful_nether",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> ROAST_GOAT_MEAT_WITH_FREEZE_BERRIES_SYRUP = ITEMS.register("roast_goat_meat_with_freeze_berries_syrup",

@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
@@ -20,11 +21,20 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.sanberdir.wizardrydelight.common.Items.InitItemsWD;
 import net.sanberdir.wizardrydelight.common.ModWoodType;
 import net.sanberdir.wizardrydelight.common.blocks.InitBlocksWD;
+import net.sanberdir.wizardrydelight.common.entity.ModEntities;
+import net.sanberdir.wizardrydelight.common.particle.ModParticles;
+import net.sanberdir.wizardrydelight.common.sounds.CustomSoundEvents;
 import net.sanberdir.wizardrydelight.common.world.feature.ModConfiguredFeatures;
 import net.sanberdir.wizardrydelight.common.world.feature.ModPlacedFeatures;
 import org.slf4j.Logger;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
+
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(WizardryDelight.MOD_ID)
@@ -52,6 +62,9 @@ public class WizardryDelight
         ITEMS.register(modEventBus);
         InitItemsWD.register(modEventBus);
         InitBlocksWD.register(modEventBus);
+        ModParticles.register(modEventBus);
+        ModEntities.register(modEventBus);
+        CustomSoundEvents.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
@@ -60,11 +73,30 @@ public class WizardryDelight
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+
+
         event.enqueueWork(() -> {
             InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
                     () ->  SlotTypePreset.RING.getMessageBuilder().build());
             WoodType.register(ModWoodType.APPLE_WOOD);
         });
+    }
+    private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
+    public static void queueServerWork(int tick, Runnable action) {
+        workQueue.add(new AbstractMap.SimpleEntry(action, tick));
+    }
+    @SubscribeEvent
+    public void tick(TickEvent.ServerTickEvent event) {
+        if (event.phase == TickEvent.Phase.END) {
+            List<AbstractMap.SimpleEntry<Runnable, Integer>> actions = new ArrayList<>();
+            workQueue.forEach(work -> {
+                work.setValue(work.getValue() - 1);
+                if (work.getValue() == 0)
+                    actions.add(work);
+            });
+            actions.forEach(e -> e.getKey().run());
+            workQueue.removeAll(actions);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
