@@ -202,34 +202,7 @@ public class WDSpawner extends BaseEntityBlock implements EntityBlock{
                                 return "";
                             }
                         }.getValue(world, new BlockPos(x, y, z), "getEntity1")) + " ~0.5 ~1 ~0.5"));
-          if ((new Object() {
-                public String getValue(LevelAccessor world, BlockPos pos, String tag) {
-                    BlockEntity blockEntity = world.getBlockEntity(pos);
-                    if (blockEntity != null)
-                        return blockEntity.getPersistentData().getString(tag);
-                    return "";
-                }
-            }.getValue(world, new BlockPos(x, y, z), "getEntity1")).equals("minecraft:cow")) {
-                if (Math.random() <= 0.04) {
-                    if (world instanceof ServerLevel _level)
-                        _level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-                                "summon wizardry_delight:wool_cow ~0.5 ~1 ~0.5");
-                }
-            }
-           if ((new Object() {
-                public String getValue(LevelAccessor world, BlockPos pos, String tag) {
-                    BlockEntity blockEntity = world.getBlockEntity(pos);
-                    if (blockEntity != null)
-                        return blockEntity.getPersistentData().getString(tag);
-                    return "";
-                }
-            }.getValue(world, new BlockPos(x, y, z), "getEntity1")).equals("minecraft:chicken")) {
-                if (Math.random() <= 0.02) {
-                    if (world instanceof ServerLevel _level)
-                        _level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-                                "summon wizardry_delight:feather_chicken ~0.5 ~1 ~0.5");
-                }
-            }
+
 
 
             if (Math.random() < 0.40) {
@@ -268,26 +241,17 @@ public class WDSpawner extends BaseEntityBlock implements EntityBlock{
     }
 
     @Override
-    public void tick(BlockState p_222945_, ServerLevel level, BlockPos pos, RandomSource p_222948_) {
-        super.tick(p_222945_, level, pos, p_222948_);
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource p_222948_) {
+        super.tick(state, level, pos, p_222948_);
         int x = pos.getX();
         int y = pos.getY();
         int z = pos.getZ();
-
-
-    }
-
-    @Override
-    public void randomTick(BlockState state, ServerLevel serverLevel, BlockPos pos, RandomSource randomSource) {
-        Player entity = Minecraft.getInstance().player;
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
-
         if ((sumBePollen(state))&&(canBeSoulStones2(state))) {
-            summonEntity(serverLevel,x, y, z,pos,state,serverLevel);
+            summonEntity(level,x, y, z,pos,state,level);
         }
+
     }
+
 
 
 

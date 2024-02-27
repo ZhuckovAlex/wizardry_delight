@@ -3,6 +3,7 @@ package net.sanberdir.wizardrydelight;
 import com.mojang.logging.LogUtils;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
@@ -46,8 +47,13 @@ import net.sanberdir.wizardrydelight.common.ModWoodType;
 import net.sanberdir.wizardrydelight.common.armor.elytra.DragoliteElytraArmorStandLayer;
 import net.sanberdir.wizardrydelight.common.armor.elytra.DragoliteElytraLayer;
 import net.sanberdir.wizardrydelight.common.blocks.InitBlocksWD;
+import net.sanberdir.wizardrydelight.common.blocks.ModBlockEntities;
 import net.sanberdir.wizardrydelight.common.blocks.customBlocks.WDBlockEntities;
 import net.sanberdir.wizardrydelight.common.entity.ModEntities;
+import net.sanberdir.wizardrydelight.common.entity.boat.ModBoatRenderer;
+import net.sanberdir.wizardrydelight.common.entity.boat.ModEntityData;
+import net.sanberdir.wizardrydelight.common.entity.chest_boat.ModChestBoatRenderer;
+import net.sanberdir.wizardrydelight.common.entity.spawner.WDSpawnerRenderer;
 import net.sanberdir.wizardrydelight.common.entity.type_blocks_item.EntityTypeInitializer;
 import net.sanberdir.wizardrydelight.common.particle.ModParticles;
 import net.sanberdir.wizardrydelight.common.sounds.CustomSoundEvents;
@@ -199,6 +205,14 @@ public class WizardryDelight
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents
     {
+        @SubscribeEvent
+        public static void onEntityRendererRegistry(final EntityRenderersEvent.RegisterRenderers registerEntityEvent) {
+            registerEntityEvent.registerEntityRenderer(ModEntityData.MOD_BOAT_DATA, ModBoatRenderer::new);
+            registerEntityEvent.registerBlockEntityRenderer(ModBlockEntities.SPAWNER_MOD_TYPE, WDSpawnerRenderer::new);
+
+            registerEntityEvent.registerEntityRenderer(ModEntityData.MOD_CHEST_BOAT_DATA, ModChestBoatRenderer::new);
+
+        }
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {

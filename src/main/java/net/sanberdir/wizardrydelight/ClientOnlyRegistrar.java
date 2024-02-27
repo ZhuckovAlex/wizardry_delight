@@ -24,6 +24,7 @@ import net.sanberdir.wizardrydelight.common.blocks.ModBlockEntities;
 import net.sanberdir.wizardrydelight.common.entity.boat.ModBoatRenderer;
 import net.sanberdir.wizardrydelight.common.entity.boat.ModEntityData;
 import net.sanberdir.wizardrydelight.common.entity.chest_boat.ModChestBoatRenderer;
+import net.sanberdir.wizardrydelight.common.entity.spawner.WDSpawnerRenderer;
 
 import java.util.Map;
 
@@ -89,6 +90,7 @@ public class ClientOnlyRegistrar {
 
 
             registerEntityEvent.registerEntityRenderer(ModEntityData.MOD_CHEST_BOAT_DATA, ModChestBoatRenderer::new);
+            registerEntityEvent.registerBlockEntityRenderer(ModBlockEntities.SPAWNER_MOD_TYPE, WDSpawnerRenderer::new);
 
         }
 
