@@ -126,6 +126,8 @@ public class InitItemsWD {
             () -> new AnimateItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> WARPED_BONE_MEAL = ITEMS.register("warped_bone_meal",
             () -> new AnimateItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+    public static final RegistryObject<Item> WD_SPAWNER = ITEMS.register("wd_spawner",
+            () -> new ItemNameBlockItem(InitBlocksWD.WD_SPAWNER.get(),(new Item.Properties().fireResistant().tab(ModCreativeTab.BUSHES))));
     public static final RegistryObject<Item> FIRE_STEM = ITEMS.register("fire_stem",
             () -> new ItemNameBlockItem(InitBlocksWD.FIRE_STEM.get(),(new Item.Properties().fireResistant().tab(ModCreativeTab.BUSHES))));
     public static final RegistryObject<Item> ROSE_OF_GHOSTY_TEARS = ITEMS.register("rose_of_ghosty_tears",
@@ -173,8 +175,7 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> LEVITAN_JAM = ITEMS.register("levitan_jam",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
-    public static final RegistryObject<Item> MAG_ELITRA = ITEMS.register("mag_elitra",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+
     public static final RegistryObject<Item> CLEANSING_DECOCTION = ITEMS.register("cleansing_decoction",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
 
@@ -186,10 +187,7 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> FLAME_ARROW = ITEMS.register("flame_arrow",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
-    public static final RegistryObject<Item> APPLE_BOAT = ITEMS.register("apple_boat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
-    public static final RegistryObject<Item> APPLE_CHEST_BOAT = ITEMS.register("apple_chest_boat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+
     public static final RegistryObject<Item> DRAGOLIT_BLOCK = ITEMS.register("dragolit_block",
             () -> new ItemNameBlockItem(InitBlocksWD.DRAGOLIT_BLOCK.get(),(new Item.Properties().fireResistant().tab(ModCreativeTab.BUSHES))));
     public static final RegistryObject<Item> DRAGOLIT_GRID = ITEMS.register("dragolit_grid",
