@@ -10,6 +10,7 @@ import net.sanberdir.wizardrydelight.WizardryDelight;
 import net.sanberdir.wizardrydelight.common.particle.ModParticles;
 import net.sanberdir.wizardrydelight.common.particle.custom.RobinStarsParticles;
 import net.sanberdir.wizardrydelight.common.particle.custom.RobinStarsParticlesProjectile;
+import net.sanberdir.wizardrydelight.common.particle.custom.StombleRoseParticles;
 
 
 @Mod.EventBusSubscriber(modid = WizardryDelight.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
@@ -26,7 +27,8 @@ public class ModEventClientBusEvents {
             Minecraft.getInstance().particleEngine.register(ModParticles.ROBIN_STAR_PARTICLES_PROJECTILE.get(),
                     RobinStarsParticlesProjectile.Provider::new);
 
-
+            Minecraft.getInstance().particleEngine.register(ModParticles.STOMBLE_ROSE.get(),
+                    StombleRoseParticles.Provider::new);
         }
     }
 

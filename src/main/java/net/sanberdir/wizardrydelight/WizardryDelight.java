@@ -1,6 +1,7 @@
 package net.sanberdir.wizardrydelight;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -18,15 +19,20 @@ import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+import net.sanberdir.wizardrydelight.client.ModCreativeTab;
 import net.sanberdir.wizardrydelight.common.Items.InitItemsWD;
+import net.sanberdir.wizardrydelight.common.Items.customItem.SoulStoneDeactive;
 import net.sanberdir.wizardrydelight.common.ModWoodType;
 import net.sanberdir.wizardrydelight.common.blocks.InitBlocksWD;
+import net.sanberdir.wizardrydelight.common.blocks.customBlocks.WDBlockEntities;
 import net.sanberdir.wizardrydelight.common.entity.ModEntities;
 import net.sanberdir.wizardrydelight.common.particle.ModParticles;
 import net.sanberdir.wizardrydelight.common.sounds.CustomSoundEvents;
 import net.sanberdir.wizardrydelight.common.world.feature.ModConfiguredFeatures;
 import net.sanberdir.wizardrydelight.common.world.feature.ModPlacedFeatures;
-import org.slf4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
 
@@ -43,11 +49,17 @@ public class WizardryDelight
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "wizardry_delight";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
-    // Create a Deferred Register to hold Blocks which will all be registered under the "examplemod" namespace
-    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MOD_ID);
-    // Create a Deferred Register to hold Items which will all be registered under the "examplemod" namespace
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
+
+    // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
+    public static final Logger LOGGER = LogManager.getLogger();
+    // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
+    public static final RegistryObject<Item> SOUL_STONE_DISCHARGED = ITEMS.register("soul_stone_discharged", () -> new SoulStoneDeactive(new Item.Properties().stacksTo(1).tab(ModCreativeTab.BUSHES)));
+
+    // Directly reference a slf4j logger
+
+
+    // Network channel
 
    public WizardryDelight()
     {
@@ -57,7 +69,6 @@ public class WizardryDelight
         modEventBus.addListener(this::commonSetup);
 
         // Register the Deferred Register to the mod event bus so blocks get registered
-        BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
         InitItemsWD.register(modEventBus);
@@ -67,6 +78,7 @@ public class WizardryDelight
         CustomSoundEvents.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
+        WDBlockEntities.register(modEventBus);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }

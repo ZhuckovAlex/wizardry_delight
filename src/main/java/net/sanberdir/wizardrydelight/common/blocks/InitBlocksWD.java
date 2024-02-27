@@ -53,6 +53,13 @@ public class InitBlocksWD {
             () -> new SoulRose(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> POTTED_ROSE_OF_GHOSTY_TEARS = registerBlockWithoutBlockItem("potted_rose_of_ghosty_tears",
             () -> new FlowerPotBlock(ROSE_OF_GHOSTY_TEARS.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> ROSE_OF_THE_MURDERER = registerBlockWithoutBlockItem("rose_of_the_murderer",
+            () -> new StombleRose(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+    public static final RegistryObject<Block> POTTED_ROSE_OF_THE_MURDERER = registerBlockWithoutBlockItem("potted_rose_of_the_murderer",
+            () -> new FlowerPotBlock(ROSE_OF_THE_MURDERER.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> ROSE_OF_THE_MURDERER2 = registerBlockWithoutBlockItem("rose_of_the_murderer2",
+            () -> new StombleRose2(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+
     public static final RegistryObject<Block> SPATIAL_ORCHID = registerBlockWithoutBlockItem("spatial_orchid",
             () -> new Orhidea(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> POTTED_SPATIAL_ORCHID = registerBlockWithoutBlockItem("potted_spatial_orchid",

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "wizardry_delight:item/poison_berry_jam"
+    "layer0": "wizardry_delight:item/cocked_frog"
   }
 }
