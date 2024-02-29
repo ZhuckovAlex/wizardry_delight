@@ -3,13 +3,13 @@ package net.sanberdir.wizardrydelight.common.blocks;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.Util;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.InclusiveRange;
 import net.minecraft.util.random.SimpleWeightedRandomList;
 
 import java.util.Optional;
+
+import static org.spongepowered.tools.obfuscation.ObfuscationType.DEFAULT_TYPE;
 
 public record WDSpawnerRecord(CompoundTag entityToSpawn, Optional<CustomSpawnRules> customSpawnRules) {
     public static final Codec<WDSpawnerRecord> CODEC = RecordCodecBuilder.create((p_186571_) -> {
@@ -19,25 +19,30 @@ public record WDSpawnerRecord(CompoundTag entityToSpawn, Optional<CustomSpawnRul
             return p_186569_.customSpawnRules;
         })).apply(p_186571_, WDSpawnerRecord::new);
     });
+
     public static final Codec<SimpleWeightedRandomList<WDSpawnerRecord>> LIST_CODEC = SimpleWeightedRandomList.wrappedCodecAllowingEmpty(CODEC);
 
-
-
-
-    private static final double x = 1;
-    private static final double y = 1;
-    private static final double z = 1;
-    public static String DEFAULT_TYPE = "minecraft:cow";
-
     public WDSpawnerRecord() {
-        this(Util.make(new CompoundTag(), (p_186573_) -> {
-            p_186573_.putString("id", DEFAULT_TYPE);
-        }), Optional.empty());
+        this(new CompoundTag(), Optional.empty());
     }
 
-    public WDSpawnerRecord {
-        ResourceLocation resourcelocation = ResourceLocation.tryParse(entityToSpawn.getString("id"));
-        entityToSpawn.putString("id", resourcelocation != null ? resourcelocation.toString() : DEFAULT_TYPE);
+    public WDSpawnerRecord(CompoundTag entityToSpawn, Optional<CustomSpawnRules> customSpawnRules) {
+        // Если идентификатор сущности не указан, используем значение по умолчанию
+        if (!entityToSpawn.contains("id")) {
+            entityToSpawn.putString("id", DEFAULT_TYPE);
+        }
+        this.entityToSpawn = entityToSpawn;
+        this.customSpawnRules = customSpawnRules;
+        // Обновляем entityToSpawn, если getEntity1 присутствует
+        updateEntityToSpawnFromGetEntity1();
+    }
+
+    // Метод для обновления entityToSpawn, если getEntity1 присутствует
+    public void updateEntityToSpawnFromGetEntity1() {
+        if (this.entityToSpawn.contains("getEntity1")) {
+            String entityId = this.entityToSpawn.getString("getEntity1");
+            this.entityToSpawn.putString("id", entityId);
+        }
     }
 
     public CompoundTag getEntityToSpawn() {
@@ -59,7 +64,7 @@ public record WDSpawnerRecord(CompoundTag entityToSpawn, Optional<CustomSpawnRul
         });
 
         private static DataResult<InclusiveRange<Integer>> checkLightBoundaries(InclusiveRange<Integer> p_186593_) {
-            return !LIGHT_RANGE.contains(p_186593_) ? DataResult.error("Light values must be withing range " + LIGHT_RANGE) : DataResult.success(p_186593_);
+            return !LIGHT_RANGE.contains(p_186593_) ? DataResult.error("Light values must be within range " + LIGHT_RANGE) : DataResult.success(p_186593_);
         }
     }
 }

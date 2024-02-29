@@ -1,9 +1,7 @@
 package net.sanberdir.wizardrydelight;
 
-import com.mojang.logging.LogUtils;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
-import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
@@ -14,8 +12,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SignItem;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
@@ -49,6 +45,7 @@ import net.sanberdir.wizardrydelight.common.armor.elytra.DragoliteElytraLayer;
 import net.sanberdir.wizardrydelight.common.blocks.InitBlocksWD;
 import net.sanberdir.wizardrydelight.common.blocks.ModBlockEntities;
 import net.sanberdir.wizardrydelight.common.blocks.customBlocks.WDBlockEntities;
+import net.sanberdir.wizardrydelight.common.enchant.musketer_speed.EnchantmentInit;
 import net.sanberdir.wizardrydelight.common.entity.ModEntities;
 import net.sanberdir.wizardrydelight.common.entity.boat.ModBoatRenderer;
 import net.sanberdir.wizardrydelight.common.entity.boat.ModEntityData;
@@ -103,6 +100,7 @@ public class WizardryDelight
         InitItemsWD.register(modEventBus);
         InitBlocksWD.register(modEventBus);
         ModParticles.register(modEventBus);
+        EnchantmentInit.init(modEventBus);
         ModEntities.register(modEventBus);
         CustomSoundEvents.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);

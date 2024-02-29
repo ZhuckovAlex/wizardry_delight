@@ -28,20 +28,10 @@ import javax.annotation.Nullable;
 
 @Mod.EventBusSubscriber
 public class StrikeRobinStick {
-    @SubscribeEvent
-    public static void onRightClickItem(PlayerInteractEvent.RightClickItem event) {
-        if (event.getHand() != event.getEntity().getUsedItemHand())
-            return;
 
-            execute(event, event.getEntity(), event.getItemStack(), event.getLevel(), event.getPos().getX(), event.getPos().getY(), event.getPos().getZ());
 
-    }
 
-    public static void execute(Entity entity,ItemStack itemStack, LevelAccessor world, double x, double y, double z) {
-        execute(null, entity,itemStack,world,x,y,z);
-    }
-
-    private static void execute(@Nullable Event event, Entity entity, ItemStack itemstack, LevelAccessor world, double x, double y, double z) {
+    public static void execute(Entity entity, LevelAccessor world, double x, double y, double z) {
         if (entity == null)
             return;
 

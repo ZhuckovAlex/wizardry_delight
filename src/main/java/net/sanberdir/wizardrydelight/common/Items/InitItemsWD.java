@@ -2,11 +2,14 @@ package net.sanberdir.wizardrydelight.common.Items;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 
 import net.minecraft.world.item.Item;
 
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -39,17 +42,17 @@ public class InitItemsWD {
             () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> FREEZE_JAM = ITEMS.register("freeze_jam",
-            () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
 
     public static final RegistryObject<Item> FROG_BODY = ITEMS.register("frog_body",
-            () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> CHEESE_1 = ITEMS.register("cheese_1",
             () -> new Cheese1(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> CHEESE_2 = ITEMS.register("cheese_2",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
+            () -> new Cheese2(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> CHARMING_JAM = ITEMS.register("charming_jam",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
@@ -154,12 +157,15 @@ public class InitItemsWD {
     public static final RegistryObject<Item> GOULASH_WITH_GOAT_MEAT = ITEMS.register("goulash_with_goat_meat",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
 
-        public static final RegistryObject<Item> HAT_HELMET = ITEMS.register("hat_helmet",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+    public static final RegistryObject<Item> HAT_HELMET = ITEMS.register("hat_helmet",
+            () -> new HatArmorItem(ModArmorMaterials.HAT, EquipmentSlot.HEAD,
+                    new Item.Properties().durability(105).tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> HAT_HELMET_CLEAR = ITEMS.register("hat_helmet_clear",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+            () -> new ClearHatArmorItem(ModArmorMaterials.HAT_CLEAR, EquipmentSlot.HEAD,
+                    new Item.Properties().durability(105).tab(ModCreativeTab.BUSHES)));
+
     public static final RegistryObject<Item> HEALING_DEW = ITEMS.register("healing_dew",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+            () -> new AnimateItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> HOT_COCOA_WITH_SPARKING_POLLEN = ITEMS.register("hot_cocoa_with_sparkling_pollen",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> HUSTING_TWISTER = ITEMS.register("hunting_twister",
@@ -175,8 +181,8 @@ public class InitItemsWD {
     public static final RegistryObject<Item> LEVITAN_JAM = ITEMS.register("levitan_jam",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
 
-    public static final RegistryObject<Item> CLEANSING_DECOCTION = ITEMS.register("cleansing_decoction",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+    public static final RegistryObject<Item> CLEANING_DECOCTION = ITEMS.register("cleansing_decoction",
+            () -> new CleansingDecoction(new Item.Properties().tab(ModCreativeTab.BUSHES).durability(12)));
 
     public static final RegistryObject<Item> APPLE_JAM = ITEMS.register("apple_jam",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
@@ -224,7 +230,7 @@ public class InitItemsWD {
     public static final RegistryObject<Item> POISON_BERRY_JAM = ITEMS.register("poison_berry_jam",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> SPAGA_DRACOLIT = ITEMS.register("spaga_dragolit",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+            () -> new Rapier(Tiers.NETHERITE, -2,-1.6f,new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> SUGAR_REFINED = ITEMS.register("sugar_refined",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> SWEET_JAM = ITEMS.register("sweet_jam",
@@ -248,7 +254,7 @@ public class InitItemsWD {
     public static final RegistryObject<Item> RAW_HORSE = ITEMS.register("raw_horse",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> ROBIN_STICK = ITEMS.register("robin_stick",
-            () -> new StarBallItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+            () -> new StarBallItem(new Item.Properties().tab(ModCreativeTab.BUSHES).durability(70)));
     public static final RegistryObject<Item> STAR_BALL = ITEMS.register("star_ball",
             () -> new StarBallItem(new Item.Properties()));
     public static final RegistryObject<Item> HANDFUL_NETHER = ITEMS.register("handful_nether",

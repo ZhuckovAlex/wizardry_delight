@@ -8,6 +8,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.sanberdir.wizardrydelight.server.procedures.GoFireballProcedure;
+import net.sanberdir.wizardrydelight.server.procedures.StrikeRobinStick;
 
 public class StarBallItem extends Item {
 
@@ -18,9 +19,12 @@ public class StarBallItem extends Item {
     @Override
     public InteractionResultHolder<ItemStack> use(Level world, Player entity, InteractionHand hand) {
         entity.startUsingItem(hand);
+
+        // Вызов процедуры с необходимыми параметрами
+        StrikeRobinStick.execute(entity, world, entity.getX(), entity.getY(), entity.getZ());
+
         // Кулдаун
         entity.getCooldowns().addCooldown(this, 40);
         return new InteractionResultHolder(InteractionResult.SUCCESS, entity.getItemInHand(hand));
     }
-
 }

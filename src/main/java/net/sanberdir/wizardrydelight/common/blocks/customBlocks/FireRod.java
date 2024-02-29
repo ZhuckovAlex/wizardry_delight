@@ -6,7 +6,10 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -122,14 +125,26 @@ public class FireRod extends Block implements net.minecraftforge.common.IPlantab
 
 
     public void entityInside(BlockState p_49260_, Level p_49261_, BlockPos p_49262_, Entity p_49263_) {
-        if (!p_49263_.fireImmune()) {
-            p_49263_.setRemainingFireTicks(p_49263_.getRemainingFireTicks() + 1);
-            if (p_49263_.getRemainingFireTicks() == 0) {
-                p_49263_.setSecondsOnFire(8);
-            }
+        // Increase the remaining fire ticks by 1 every time the entity enters the block
+        p_49263_.setRemainingFireTicks(p_49263_.getRemainingFireTicks() + 1);
+        // Ensure the entity is on fire for 8 seconds
+        p_49263_.setSecondsOnFire(8);
+
+        // Apply fire damage every second regardless of the entity's fire immunity
+        p_49263_.hurt(DamageSource.IN_FIRE, this.fireDamage);
+
+        // Additional damage of 2 hearts every second
+        p_49263_.hurt(DamageSource.GENERIC, 4.0f); // Assuming fireDamage is set to 2.0f
+
+        // Apply slowness effect to the entity
+        // Assuming the effect should last for 10 seconds with an amplifier of 1 (Slowness I)
+        if (p_49263_ instanceof LivingEntity) {
+            LivingEntity livingEntity = (LivingEntity) p_49263_;
+
+            // Apply slowness effect to the living entity
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 800, 3));
         }
 
-        p_49263_.hurt(DamageSource.IN_FIRE, this.fireDamage);
         super.entityInside(p_49260_, p_49261_, p_49262_, p_49263_);
     }
 
