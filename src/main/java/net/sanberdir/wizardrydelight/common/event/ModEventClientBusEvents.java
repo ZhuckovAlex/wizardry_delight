@@ -1,13 +1,17 @@
 package net.sanberdir.wizardrydelight.common.event;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.sanberdir.wizardrydelight.WizardryDelight;
+import net.sanberdir.wizardrydelight.common.Items.arrows.EntityTypeInit;
 import net.sanberdir.wizardrydelight.common.Items.customItem.ClearHatArmorItem;
 import net.sanberdir.wizardrydelight.common.Items.customItem.HatArmorItem;
 import net.sanberdir.wizardrydelight.common.armor.entity.custom.armor.ClearHatArmorRenderer;

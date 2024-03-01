@@ -8,7 +8,6 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -191,7 +190,7 @@ public class InitItemsWD {
     public static final RegistryObject<Item> A_DROP_OF_LOVE = ITEMS.register("a_drop_of_love",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> FLAME_ARROW = ITEMS.register("flame_arrow",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+            () -> new FlameArrowItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
 
     public static final RegistryObject<Item> DRAGOLIT_BLOCK = ITEMS.register("dragolit_block",
             () -> new ItemNameBlockItem(InitBlocksWD.DRAGOLIT_BLOCK.get(),(new Item.Properties().fireResistant().tab(ModCreativeTab.BUSHES))));

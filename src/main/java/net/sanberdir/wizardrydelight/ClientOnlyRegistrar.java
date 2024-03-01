@@ -7,6 +7,7 @@ import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.Sheets;
 import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
@@ -53,6 +54,7 @@ public class ClientOnlyRegistrar {
 
     @Mod.EventBusSubscriber(modid = WizardryDelight.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ClientRegistryEvents {
+
         @SubscribeEvent
         public static <T extends LivingEntity, M extends HumanoidModel<T>> void onEntityRendererRegistry(final EntityRenderersEvent.AddLayers registerAddedLayerEvent) {
             PlayerRenderer playerSkinRenderer = registerAddedLayerEvent.getSkin("default");

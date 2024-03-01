@@ -142,7 +142,7 @@ public class FireRod extends Block implements net.minecraftforge.common.IPlantab
             LivingEntity livingEntity = (LivingEntity) p_49263_;
 
             // Apply slowness effect to the living entity
-            livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 800, 3));
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 3));
         }
 
         super.entityInside(p_49260_, p_49261_, p_49262_, p_49263_);

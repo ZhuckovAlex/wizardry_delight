@@ -3,9 +3,11 @@ package net.sanberdir.wizardrydelight;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.player.PlayerRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -18,6 +20,8 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -35,10 +39,8 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sanberdir.wizardrydelight.client.ModCreativeTab;
 import net.sanberdir.wizardrydelight.common.Items.InitItemsWD;
 import net.sanberdir.wizardrydelight.common.Items.ModArmorMaterials;
-import net.sanberdir.wizardrydelight.common.Items.customItem.AppleBoat;
-import net.sanberdir.wizardrydelight.common.Items.customItem.AppleChestBoat;
-import net.sanberdir.wizardrydelight.common.Items.customItem.ModElytra;
-import net.sanberdir.wizardrydelight.common.Items.customItem.SoulStoneDeactive;
+import net.sanberdir.wizardrydelight.common.Items.arrows.*;
+import net.sanberdir.wizardrydelight.common.Items.customItem.*;
 import net.sanberdir.wizardrydelight.common.ModWoodType;
 import net.sanberdir.wizardrydelight.common.armor.elytra.DragoliteElytraArmorStandLayer;
 import net.sanberdir.wizardrydelight.common.armor.elytra.DragoliteElytraLayer;
@@ -69,6 +71,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(WizardryDelight.MOD_ID)
+@Mod.EventBusSubscriber(modid = WizardryDelight.MOD_ID)
+
 public class WizardryDelight
 {
     // Define mod id in a common place for everything to reference
@@ -79,6 +83,8 @@ public class WizardryDelight
     // Creates a new Block with the id "examplemod:example_block", combining the namespace and path
     public static final Logger LOGGER = LogManager.getLogger();
     // Creates a new BlockItem with the id "examplemod:example_block", combining the namespace and path
+//    public static final RegistryObject<Item> FLAME_ARROW = ITEMS.register("flame_arrow", () -> new FlameArrowItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+
     public static final RegistryObject<Item> SOUL_STONE_DISCHARGED = ITEMS.register("soul_stone_discharged", () -> new SoulStoneDeactive(new Item.Properties().stacksTo(1).tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> MAG_ELITRA =  ITEMS.register("mag_elitra", () ->new ModElytra(ModArmorMaterials.ELITRA, EquipmentSlot.CHEST, new Item.Properties().durability(1200).tab(ModCreativeTab.BUSHES).fireResistant()));
 
@@ -100,15 +106,19 @@ public class WizardryDelight
         InitItemsWD.register(modEventBus);
         InitBlocksWD.register(modEventBus);
         ModParticles.register(modEventBus);
-        EnchantmentInit.init(modEventBus);
+        EntityTypeInit.ENTITY_TYPES.register(modEventBus);
+        EnchantmentInit.register(modEventBus);
         ModEntities.register(modEventBus);
         CustomSoundEvents.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
         WDBlockEntities.register(modEventBus);
+
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
     }
+
     @Mod.EventBusSubscriber(bus=Mod.EventBusSubscriber.Bus.MOD)
     public static class RegistryEvents {
 
@@ -147,6 +157,7 @@ public class WizardryDelight
 
 
     }
+
     @OnlyIn(Dist.CLIENT)
     private void registerElytraLayer(EntityRenderersEvent event) {
         if(event instanceof EntityRenderersEvent.AddLayers addLayersEvent){
@@ -166,8 +177,7 @@ public class WizardryDelight
     }
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
-
+        DispenserRegistry.registerBehaviors();
         event.enqueueWork(() -> {
             InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
                     () ->  SlotTypePreset.RING.getMessageBuilder().build());
@@ -214,6 +224,8 @@ public class WizardryDelight
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
+            EntityRenderers.register(EntityTypeInit.FLAME_ARROW.get(), FlameArrowRenderer::new);
+
             ItemProperties.register(WizardryDelight.MAG_ELITRA.get(), new ResourceLocation(MOD_ID, "broken"),
                     (stack, arg1, arg2, arg3) -> ModElytra.isUseable(stack) ? 0 : 1);
             event.enqueueWork(() -> {
@@ -226,4 +238,5 @@ public class WizardryDelight
             });
         }
     }
+
 }

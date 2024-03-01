@@ -15,7 +15,7 @@ public class EnchantmentInit {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, WizardryDelight.MOD_ID);
 
 
-    public static void init(IEventBus bus) {
+    public static void register(IEventBus bus) {
         ENCHANTMENTS.register(bus);
     }
 }
