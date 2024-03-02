@@ -83,7 +83,7 @@ public class FlameArrow extends AbstractArrow {
         // Проверяем, что сущность может быть поджегнута
         if (entity instanceof LivingEntity) {
             // Применяем урон и поджигаем сущность
-            entity.setSecondsOnFire(5); // Например, поджигаем на 5 секунд
+            entity.setSecondsOnFire(10); // Например, поджигаем на 5 секунд
         }
     }
 
