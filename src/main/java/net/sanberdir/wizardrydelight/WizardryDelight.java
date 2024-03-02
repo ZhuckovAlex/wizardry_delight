@@ -47,6 +47,7 @@ import net.sanberdir.wizardrydelight.common.armor.elytra.DragoliteElytraLayer;
 import net.sanberdir.wizardrydelight.common.blocks.InitBlocksWD;
 import net.sanberdir.wizardrydelight.common.blocks.ModBlockEntities;
 import net.sanberdir.wizardrydelight.common.blocks.customBlocks.WDBlockEntities;
+import net.sanberdir.wizardrydelight.common.effect.ModEffectsWD;
 import net.sanberdir.wizardrydelight.common.enchant.musketer_speed.EnchantmentInit;
 import net.sanberdir.wizardrydelight.common.entity.ModEntities;
 import net.sanberdir.wizardrydelight.common.entity.boat.ModBoatRenderer;
@@ -108,6 +109,7 @@ public class WizardryDelight
         ModParticles.register(modEventBus);
         EntityTypeInit.ENTITY_TYPES.register(modEventBus);
         EnchantmentInit.register(modEventBus);
+        ModEffectsWD.register(modEventBus);
         ModEntities.register(modEventBus);
         CustomSoundEvents.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
