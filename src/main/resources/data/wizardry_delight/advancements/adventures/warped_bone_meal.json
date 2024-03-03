@@ -1,0 +1,37 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "warped_bone_meal": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:warped_bone_meal"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.warped_bone_meal.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:warped_bone_meal"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.warped_bone_meal.title"
+    }
+  },
+  "requirements": [
+    [
+      "warped_bone_meal"
+    ]
+  ]
+}

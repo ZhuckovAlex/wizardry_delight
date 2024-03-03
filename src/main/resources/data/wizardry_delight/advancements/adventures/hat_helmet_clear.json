@@ -1,0 +1,41 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "hat_helmet_clear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:hat_helmet_clear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.hat_helmet_clear.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:hat_helmet_clear"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.hat_helmet_clear.title"
+    }
+  },
+  "requirements": [
+    [
+      "hat_helmet_clear"
+    ]
+  ],
+  "rewards": {
+    "experience": 800
+  }
+
+}

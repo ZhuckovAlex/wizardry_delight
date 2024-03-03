@@ -1,0 +1,41 @@
+{
+  "parent": "wizardry_delight:adventures/end_a",
+  "criteria": {
+    "ring_supply": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:ring_supply"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.ring_supply.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:ring_supply"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.ring_supply.title"
+    }
+  },
+  "requirements": [
+    [
+      "ring_supply"
+    ]
+  ],
+  "rewards": {
+    "experience": 800
+  }
+
+}

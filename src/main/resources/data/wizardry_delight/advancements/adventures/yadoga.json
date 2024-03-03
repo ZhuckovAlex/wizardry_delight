@@ -1,0 +1,37 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "yadoga": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:yadoga"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.yadoga.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:yadoga"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.yadoga.title"
+    }
+  },
+  "requirements": [
+    [
+      "yadoga"
+    ]
+  ]
+}

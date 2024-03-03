@@ -1,0 +1,37 @@
+{
+  "parent": "wizardry_delight:adventures/droping_love",
+  "criteria": {
+    "wizard_pie": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:wizard_pie"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.wizard_pie.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:wizard_pie"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.wizard_pie.title"
+    }
+  },
+  "requirements": [
+    [
+      "wizard_pie"
+    ]
+  ]
+}

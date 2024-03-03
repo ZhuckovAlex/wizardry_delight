@@ -1,0 +1,41 @@
+{
+  "parent": "wizardry_delight:adventures/end_a",
+  "criteria": {
+    "rapier": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:rapier"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.rapier.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:rapier"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.rapier.title"
+    }
+  },
+  "requirements": [
+    [
+      "rapier"
+    ]
+  ],
+  "rewards": {
+    "experience": 800
+  }
+
+}

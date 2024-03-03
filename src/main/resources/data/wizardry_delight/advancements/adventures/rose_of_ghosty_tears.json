@@ -1,0 +1,37 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "rose_of_ghosty_tears": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:rose_of_ghosty_tears"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.rose_of_ghosty_tears.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:rose_of_ghosty_tears"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.rose_of_ghosty_tears.title"
+    }
+  },
+  "requirements": [
+    [
+      "rose_of_ghosty_tears"
+    ]
+  ]
+}

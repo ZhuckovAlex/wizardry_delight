@@ -1,0 +1,40 @@
+{
+  "parent": "wizardry_delight:adventures/droping_love",
+  "criteria": {
+    "sweet_roll": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:sweet_roll"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.sweet_roll.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "wizardry_delight:sweet_roll"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.sweet_roll.title"
+    }
+  },
+  "requirements": [
+    [
+      "sweet_roll"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

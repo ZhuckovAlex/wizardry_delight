@@ -1,0 +1,41 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "sparkling_pollen": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:sparkling_pollen"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.sparkling_pollen.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:sparkling_pollen"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.sparkling_pollen.title"
+    }
+  },
+  "requirements": [
+    [
+      "sparkling_pollen"
+    ]
+  ],
+  "rewards": {
+    "experience": 800
+  }
+
+}

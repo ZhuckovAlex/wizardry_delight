@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "magic_adventure": {
+      "conditions": {},
+      "trigger": "minecraft:consume_item"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "background": "wizardry_delight:textures/gui/advancements/backgrounds/adventure.png",
+    "description": {
+      "translate": "advancements.adventure.magic_adventures.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:sweet_roll"
+    },
+    "show_toast": false,
+    "title": {
+      "translate": "advancements.adventure.magic_adventures.title"
+    }
+  },
+  "requirements": [
+    [
+      "magic_adventure"
+    ]
+  ]
+}

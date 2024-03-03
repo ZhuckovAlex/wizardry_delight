@@ -1,0 +1,37 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "meadow_golden_flower": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:meadow_golden_flower"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.meadow_golden_flower.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:meadow_golden_flower"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.meadow_golden_flower.title"
+    }
+  },
+  "requirements": [
+    [
+      "meadow_golden_flower"
+    ]
+  ]
+}

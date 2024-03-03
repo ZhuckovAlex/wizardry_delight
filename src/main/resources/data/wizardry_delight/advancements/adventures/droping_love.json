@@ -1,0 +1,37 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "a_drop_of_love": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:a_drop_of_love"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.a_drop_of_love.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:a_drop_of_love"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.a_drop_of_love.title"
+    }
+  },
+  "requirements": [
+    [
+      "a_drop_of_love"
+    ]
+  ]
+}

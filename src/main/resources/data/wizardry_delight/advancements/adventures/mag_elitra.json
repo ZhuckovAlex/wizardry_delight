@@ -1,0 +1,41 @@
+{
+  "parent": "wizardry_delight:adventures/end_a",
+  "criteria": {
+    "mag_elitra": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:mag_elitra"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.mag_elitra.description"
+    },
+    "frame": "challenge",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:mag_elitra"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.mag_elitra.title"
+    }
+  },
+  "requirements": [
+    [
+      "mag_elitra"
+    ]
+  ],
+  "rewards": {
+    "experience": 800
+  }
+
+}

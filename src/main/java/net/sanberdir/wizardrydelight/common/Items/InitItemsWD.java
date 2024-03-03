@@ -31,7 +31,8 @@ public class InitItemsWD {
     public static final RegistryObject<Item> SOUL_STONE_CHARGED = ITEMS.register("soul_stone_charged",
             () -> new SoulStoneActive(new Item.Properties().craftRemainder(WizardryDelight.SOUL_STONE_DISCHARGED.get()).stacksTo(1)));
     public static final RegistryObject<Item> POISON_BERRY = ITEMS.register("poison_berry",
-            () -> new ItemNameBlockItem(InitBlocksWD.POISON_BERRY.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().fast()
+            () -> new ItemNameBlockItem(InitBlocksWD.POISON_BERRY.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES)
+                    .food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().fast()
                     .effect(new MobEffectInstance(MobEffects.POISON, 80, 0), 1F)
                     .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 200, 0), 1F)
                     .build()))));

@@ -1,0 +1,37 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "the_pillagers_chest": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:the_pillagers_chest"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.the_pillagers_chest.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:the_pillagers_chest"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.the_pillagers_chest.title"
+    }
+  },
+  "requirements": [
+    [
+      "the_pillagers_chest"
+    ]
+  ]
+}

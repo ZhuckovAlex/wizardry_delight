@@ -1,0 +1,40 @@
+{
+  "parent": "wizardry_delight:adventures/the_pillagers_chest",
+  "criteria": {
+    "cheese": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:cheese"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.cheese.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "wizardry_delight:cheese"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.cheese.title"
+    }
+  },
+  "requirements": [
+    [
+      "cheese"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}

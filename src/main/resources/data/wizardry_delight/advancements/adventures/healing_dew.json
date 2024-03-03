@@ -1,0 +1,40 @@
+{
+  "parent": "wizardry_delight:adventures/golden_flower",
+  "criteria": {
+    "healing_dew": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:healing_dew"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.healing_dew.description"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "item": "wizardry_delight:healing_dew"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.healing_dew.title"
+    }
+  },
+  "requirements": [
+    [
+      "healing_dew"
+    ]
+  ],
+  "rewards": {
+    "experience": 500
+  }
+}
