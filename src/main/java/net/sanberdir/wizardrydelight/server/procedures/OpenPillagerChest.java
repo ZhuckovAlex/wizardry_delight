@@ -38,19 +38,16 @@ public class OpenPillagerChest {
                 removeItemFromPlayerInventory(_player, new ItemStack(InitItemsWD.THE_PILLAGERS_KEY.get()), 1);
                 removeItemFromPlayerInventory(_player, new ItemStack(InitItemsWD.THE_PILLAGERS_CHEST.get()), 1);
             }
-            handleRandomItemDrop(entity, Items.DIAMOND, 0.4, 1, 4);
+            handleRandomItemDrop(entity, Items.DIAMOND, 0.07, 1, 2);
             handleRandomItemDrop(entity, Items.BONE, 0.8, 2, 10);
             handleRandomItemDrop(entity, Items.COAL, 0.6, 2, 10);
-            handleRandomItemDrop(entity, Items.ARROW, 0.6, 3, 16);
-            handleRandomItemDrop(entity, Items.GOLD_INGOT, 0.6, 1, 6);
-            handleRandomItemDrop(entity, Items.DIAMOND, 0.05, 1, 6);
-            handleRandomItemDrop(entity, InitItemsWD.CLEANING_DECOCTION.get(), 0.05, 1, 2);
-            handleRandomItemDrop(entity, ModItems.ONION.get(), 0.3, 1, 4);
-            handleRandomItemDrop(entity, ModItems.TOMATO_SEEDS.get(), 0.3, 1, 4);
-            handleRandomItemDrop(entity, ModItems.CABBAGE_SEEDS.get(), 0.3, 1, 4);
-            handleRandomItemDrop(entity, ModItems.RICE.get(), 0.3, 1, 4);
-            handleRandomItemDrop(entity, InitItemsWD.MEDICAL_POTATO.get(), 0.05, 1, 4);
-            handleRandomItemDrop(entity, InitItemsWD.CHEESE.get(), 0.03, 1, 4);
+            handleRandomItemDrop(entity, Items.ARROW, 0.6, 3, 32);
+            handleRandomItemDrop(entity, Items.RAW_IRON, 0.7, 2, 8);
+            handleRandomItemDrop(entity, InitItemsWD.CHEESE.get(), 1, 1, 1);
+            // Добавляем выпадение 5 единиц опыта
+            if (entity instanceof Player _playerWithExperience) {
+                _playerWithExperience.giveExperiencePoints(5);
+            }
         }
     }
 

@@ -36,14 +36,14 @@ public class OpenPillagerKIngChest {
                 removeItemFromPlayerInventory(_player, new ItemStack(InitItemsWD.THE_KING_PILLAGERS_KEY.get()), 1);
                 removeItemFromPlayerInventory(_player, new ItemStack(InitItemsWD.GOLDEN_CHEST_KING_PILLAGER.get()), 1);
             }
-            handleRandomItemDrop(entity, Items.DIAMOND, 0.8, 3, 12);
-            handleRandomItemDrop(entity, Items.REDSTONE, 0.6, 4, 16);
-            handleRandomItemDrop(entity, Items.LAPIS_LAZULI, 0.6, 2, 10);
-            handleRandomItemDrop(entity, Items.EMERALD, 0.6, 3, 16);
-            handleRandomItemDrop(entity, Items.GOLD_INGOT, 0.8, 4, 16);
-            handleRandomItemDrop(entity, InitItemsWD.A_DROP_OF_LOVE.get(), 0.05, 1, 6);
-            handleRandomItemDrop(entity, InitItemsWD.MEDICAL_POTATO.get(), 0.1, 1, 4);
-            handleRandomItemDrop(entity, InitItemsWD.CHEESE.get(), 0.1, 2, 8);
+            handleRandomItemDrop(entity, Items.DIAMOND, 0.6, 1, 5);
+            handleRandomItemDrop(entity, Items.EMERALD, 0.8, 3, 16);
+            handleRandomItemDrop(entity, Items.GOLD_INGOT, 1, 4, 16);
+            handleRandomItemDrop(entity, InitItemsWD.A_DROP_OF_LOVE.get(), 0.5, 1, 2);
+            handleRandomItemDrop(entity, InitItemsWD.CHEESE.get(), 1, 1, 2);
+            if (entity instanceof Player _playerWithExperience) {
+                _playerWithExperience.giveExperiencePoints(500);
+            }
         }
     }
     private static void removeItemFromPlayerInventory(Player player, ItemStack itemStack, int quantity) {

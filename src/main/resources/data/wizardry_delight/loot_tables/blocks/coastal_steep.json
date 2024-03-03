@@ -56,7 +56,7 @@
         {
           "condition": "minecraft:match_tool",
           "predicate": {
-            "tag": "minecraft:knifes"
+            "tag": "wizardry_delight:knifes"
           }
         }
       ]

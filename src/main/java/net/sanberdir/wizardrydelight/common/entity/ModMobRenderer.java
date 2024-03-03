@@ -13,6 +13,7 @@ public class ModMobRenderer {
     @SubscribeEvent
     public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(ModEntities.STAR_BALL.get(), ThrownItemRenderer::new);
+        event.registerEntityRenderer(ModEntities.EGG_MOTTLED.get(), ThrownItemRenderer::new);
     }
 
 }
