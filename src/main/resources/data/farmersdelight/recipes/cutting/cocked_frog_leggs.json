@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "wizardry_delight:cocked_frog"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "wizardry_delight:cocked_frog_legs"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

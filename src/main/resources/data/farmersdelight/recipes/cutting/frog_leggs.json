@@ -1,0 +1,17 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    {
+      "item": "wizardry_delight:frog_body"
+    }
+  ],
+  "result": [
+    {
+      "count": 2,
+      "item": "wizardry_delight:frog_legs"
+    }
+  ],
+  "tool": {
+    "tag": "forge:tools/knives"
+  }
+}

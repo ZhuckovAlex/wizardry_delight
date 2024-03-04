@@ -79,6 +79,10 @@ public class ModConfiguredFeatures {
             () -> new ConfiguredFeature<>(Feature.FLOWER,
                     new RandomPatchConfiguration(8, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
                             new SimpleBlockConfiguration(BlockStateProvider.simple(InitBlocksWD.ROSE_OF_GHOSTY_TEARS.get()))))));
+    public static final RegistryObject<ConfiguredFeature<?, ?>> ROSE_OF_THE_MURDERER = CONFIGURED_FEATURES.register("rose_of_the_murderer",
+            () -> new ConfiguredFeature<>(Feature.FLOWER,
+                    new RandomPatchConfiguration(8, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,
+                            new SimpleBlockConfiguration(BlockStateProvider.simple(InitBlocksWD.ROSE_OF_THE_MURDERER.get()))))));
     public static final RegistryObject<ConfiguredFeature<?, ?>> SPATIAL_ORCHID = CONFIGURED_FEATURES.register("spatial_orchid",
             () -> new ConfiguredFeature<>(Feature.FLOWER,
                     new RandomPatchConfiguration(2, 6, 2, PlacementUtils.onlyWhenEmpty(Feature.SIMPLE_BLOCK,

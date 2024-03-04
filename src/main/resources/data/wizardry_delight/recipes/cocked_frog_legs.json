@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "ingredient": {
+    "item": "wizardry_delight:frog_legs"
+  },
+  "result": "wizardry_delight:cocked_frog_legs"
+}

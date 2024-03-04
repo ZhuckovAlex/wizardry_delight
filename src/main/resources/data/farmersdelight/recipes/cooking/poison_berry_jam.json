@@ -7,13 +7,13 @@
   },
   "ingredients": [
     {
-      "item": "wizardry_delight:yadoga"
+      "item": "wizardry_delight:poison_berry"
     },
     {
-      "item": "wizardry_delight:yadoga"
+      "item": "wizardry_delight:poison_berry"
     },
     {
-      "item": "wizardry_delight:yadoga"
+      "item": "wizardry_delight:poison_berry"
     },
     {
       "item": "wizardry_delight:sugar_refined"
@@ -27,6 +27,6 @@
   ],
   "recipe_book_tab": "jam",
   "result": {
-    "item": "wizardry_delight:yadoga_jam"
+    "item": "wizardry_delight:poison_berry_jam"
   }
 }

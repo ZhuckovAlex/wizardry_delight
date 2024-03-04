@@ -43,6 +43,9 @@ public class ModPlacedFeatures {
     public static final RegistryObject<PlacedFeature> ROSE_OF_GHOSTY_TEARS_ORE_PLACED = PLACED_FEATURES.register("rose_of_ghosty_tears_ore_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.ROSE_OF_GHOSTY_TEARS.getHolder().get(), commonOrePlacement(2, // VeinsPerChunk
                     HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(100)))));
+    public static final RegistryObject<PlacedFeature> ROSE_OF_THE_MURDERER_ORE_PLACED = PLACED_FEATURES.register("rose_of_the_murderer_ore_placed",
+            () -> new PlacedFeature(ModConfiguredFeatures.ROSE_OF_THE_MURDERER.getHolder().get(), commonOrePlacement(2, // VeinsPerChunk
+                    HeightRangePlacement.uniform(VerticalAnchor.absolute(0), VerticalAnchor.absolute(100)))));
     public static final RegistryObject<PlacedFeature> SPATIAL_ORCHID_PLACED = PLACED_FEATURES.register("spatial_orchid_placed",
             () -> new PlacedFeature(ModConfiguredFeatures.SPATIAL_ORCHID.getHolder().get(), List.of(RarityFilter.onAverageOnceEvery(15),
                     InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome())));

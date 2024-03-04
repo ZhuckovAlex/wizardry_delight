@@ -2,6 +2,7 @@ package net.sanberdir.wizardrydelight;
 
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.EntityModelSet;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.client.renderer.entity.ArmorStandRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
@@ -14,17 +15,21 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.decoration.ArmorStand;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.state.properties.WoodType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -46,7 +51,10 @@ import net.sanberdir.wizardrydelight.common.armor.elytra.DragoliteElytraArmorSta
 import net.sanberdir.wizardrydelight.common.armor.elytra.DragoliteElytraLayer;
 import net.sanberdir.wizardrydelight.common.blocks.InitBlocksWD;
 import net.sanberdir.wizardrydelight.common.blocks.ModBlockEntities;
+import net.sanberdir.wizardrydelight.common.blocks.customBlocks.AppleSign;
+import net.sanberdir.wizardrydelight.common.blocks.customBlocks.AppleWallSign;
 import net.sanberdir.wizardrydelight.common.blocks.customBlocks.WDBlockEntities;
+import net.sanberdir.wizardrydelight.common.custom_recipes.BetterBrewingRecipe;
 import net.sanberdir.wizardrydelight.common.effect.ModEffectsWD;
 import net.sanberdir.wizardrydelight.common.enchant.musketer_speed.EnchantmentInit;
 import net.sanberdir.wizardrydelight.common.entity.ModEntities;
@@ -56,6 +64,7 @@ import net.sanberdir.wizardrydelight.common.entity.boat.ModEntityData;
 import net.sanberdir.wizardrydelight.common.entity.chest_boat.ModChestBoatRenderer;
 import net.sanberdir.wizardrydelight.common.entity.chicken.client.FeatherChicken2Renderer;
 import net.sanberdir.wizardrydelight.common.entity.chicken.client.FeatherChickenRenderer;
+import net.sanberdir.wizardrydelight.common.entity.sign.ModEntitiesBlock;
 import net.sanberdir.wizardrydelight.common.entity.spawner.WDSpawnerRenderer;
 import net.sanberdir.wizardrydelight.common.entity.type_blocks_item.EntityTypeInitializer;
 import net.sanberdir.wizardrydelight.common.entity.wool_cow.client.WoolCow2Renderer;
@@ -121,7 +130,8 @@ public class WizardryDelight
         ModConfiguredFeatures.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
         WDBlockEntities.register(modEventBus);
-
+        ClientOnlyRegistrar clientOnlyRegistrar = new ClientOnlyRegistrar(modEventBus);
+        DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> clientOnlyRegistrar::registerClientOnlyEvents);
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -136,13 +146,15 @@ public class WizardryDelight
 
 
                 // All sign block entities
+                registrar.register(new ResourceLocation(MOD_ID, "mod_sign_entity"), ModBlockEntities.SIGN_ENTITY_TYPE);
 
             });
         }
         @SubscribeEvent
         public static void onBlocksRegistry(final RegisterEvent registryEvent) {
             registryEvent.register(ForgeRegistries.Keys.BLOCKS, registrar -> {
-
+                registrar.register(new ResourceLocation(MOD_ID, "apple_sign"), new AppleSign());
+                registrar.register(new ResourceLocation(MOD_ID, "apple_wall_sign"), new AppleWallSign());
             });
         }
 
@@ -151,6 +163,7 @@ public class WizardryDelight
             registerEvent.register(ForgeRegistries.Keys.ITEMS, registrar -> {
                 registrar.register(new ResourceLocation(WizardryDelight.MOD_ID, "apple_boat"), new AppleBoat());
                 registrar.register(new ResourceLocation(WizardryDelight.MOD_ID, "apple_chest_boat"), new AppleChestBoat());
+                registrar.register(new ResourceLocation(WizardryDelight.MOD_ID, "apple_sign"), new SignItem(new Item.Properties().tab(ModCreativeTab.BUSHES), ModEntitiesBlock.APPLE_SIGN, ModEntitiesBlock.APPLE_WALL_SIGN));
             });
         }
         @SubscribeEvent
@@ -225,6 +238,7 @@ public class WizardryDelight
         public static void onEntityRendererRegistry(final EntityRenderersEvent.RegisterRenderers registerEntityEvent) {
             registerEntityEvent.registerEntityRenderer(ModEntityData.MOD_BOAT_DATA, ModBoatRenderer::new);
             registerEntityEvent.registerBlockEntityRenderer(ModBlockEntities.SPAWNER_MOD_TYPE, WDSpawnerRenderer::new);
+            registerEntityEvent.registerBlockEntityRenderer(ModBlockEntities.SIGN_ENTITY_TYPE, SignRenderer::new);
 
             registerEntityEvent.registerEntityRenderer(ModEntityData.MOD_CHEST_BOAT_DATA, ModChestBoatRenderer::new);
 
@@ -244,9 +258,20 @@ public class WizardryDelight
                 ComposterBlock.COMPOSTABLES.put(InitItemsWD.COASTAL_STEEP_FLOWER.get(), 0.2f);
                 ComposterBlock.COMPOSTABLES.put(InitItemsWD.COASTAL_STEEP_FIBERS.get(), 0.2f);
                 ComposterBlock.COMPOSTABLES.put(InitItemsWD.COASTAL_STEEP.get(), 0.2f);
+                ComposterBlock.COMPOSTABLES.put(InitItemsWD.ROSE_OF_THE_MURDERER.get(), 0.2f);
+                ComposterBlock.COMPOSTABLES.put(InitItemsWD.POISON_BERRY.get(), 0.2f);
                 ComposterBlock.COMPOSTABLES.put(InitItemsWD.CHARMING_BERRIES.get(), 0.2f);
+                ComposterBlock.COMPOSTABLES.put(InitItemsWD.FREEZE_BERRIES.get(), 0.2f);
+                ComposterBlock.COMPOSTABLES.put(InitItemsWD.SPATIAL_ORCHID.get(), 0.2f);
+                ComposterBlock.COMPOSTABLES.put(InitItemsWD.MEADOW_GOLDEN_FLOWER.get(), 0.2f);
                 ComposterBlock.COMPOSTABLES.put(InitItemsWD.FIRE_STEM.get(), 0.2f);
+                ComposterBlock.COMPOSTABLES.put(InitItemsWD.APPLE_LEAVES.get(), 0.2f);
+                ComposterBlock.COMPOSTABLES.put(InitItemsWD.APPLE_SAPLING.get(), 0.2f);
+                ComposterBlock.COMPOSTABLES.put(InitItemsWD.WARPED_WART.get(), 0.2f);
                 ComposterBlock.COMPOSTABLES.put(InitItemsWD.ROSE_OF_GHOSTY_TEARS.get(), 0.2f);
+
+                BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.WATER,
+                        InitItemsWD.WARPED_WART.get(), Potions.AWKWARD));
             });
         }
     }
