@@ -26,51 +26,53 @@ public class InitItemsWD {
 
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, WizardryDelight.MOD_ID);
-
-
-    //Еда
+    public static final RegistryObject<Item> ROSE_OF_THE_MURDERER = ITEMS.register("rose_of_the_murderer",
+            () -> new ItemNameBlockItem(InitBlocksWD.ROSE_OF_THE_MURDERER.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES).fireResistant())));
+    public static final RegistryObject<Item> SOUL_STONE_CHARGED = ITEMS.register("soul_stone_charged",
+            () -> new SoulStoneActive(new Item.Properties().craftRemainder(WizardryDelight.SOUL_STONE_DISCHARGED.get()).stacksTo(1)));
     public static final RegistryObject<Item> POISON_BERRY = ITEMS.register("poison_berry",
             () -> new ItemNameBlockItem(InitBlocksWD.POISON_BERRY.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES)
                     .food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().fast()
-                    .effect(new MobEffectInstance(MobEffects.POISON, 80, 0), 0.5F)
-                    .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 200, 0), 0.5F)
+                    .effect(new MobEffectInstance(MobEffects.POISON, 80, 0), 1F)
+                    .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 200, 0), 1F)
                     .build()))));
     public static final RegistryObject<Item> CHARMING_BERRIES = ITEMS.register("charming_berries",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f).alwaysEat().fast()
-                    .effect(new MobEffectInstance(MobEffects.HARM, 10, 0), 0.7F)
-                    .effect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 0), 0.5F)
+                    .effect(new MobEffectInstance(MobEffects.HARM, 10, 0), 1F)
                     .build())));
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese",
-            () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(40).saturationMod(1f)
+            () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> FREEZE_JAM = ITEMS.register("freeze_jam",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(10).saturationMod(0.3f)
-                    .effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 100, 0), 0.9F)
-                    .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 2200, 0), 0.7F)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
 
     public static final RegistryObject<Item> FROG_BODY = ITEMS.register("frog_body",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
-                    .effect(new MobEffectInstance(MobEffects.POISON, 40, 0), 0.8F)
                     .build())));
     public static final RegistryObject<Item> CHEESE_1 = ITEMS.register("cheese_1",
-            () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(40).saturationMod(1f)
+            () -> new Cheese1(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> CHEESE_2 = ITEMS.register("cheese_2",
-            () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(40).saturationMod(1f)
+            () -> new Cheese2(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> CHARMING_JAM = ITEMS.register("charming_jam",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(100).saturationMod(0.3f)
-                    .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 1), 0.2F)
-                    .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 0.4F)
-                    .effect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 0), 0.6F)
-                    .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 480, 2), 0.7F)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.5f)
+                    .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 10, 0), 1F)
+                    .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 10, 0), 1F)
+                    .effect(new MobEffectInstance(MobEffects.BLINDNESS, 10, 0), 1F)
                     .build())));
     public static final RegistryObject<Item> FREEZE_BERRIES = ITEMS.register("freeze_berries",
             () -> new ItemNameBlockItem(InitBlocksWD.FREEZE_BERRIES.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(1).alwaysEat().fast()
-                    .effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 1), 0.8F)
-                    .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 280, 0), 0.7F)
+                    .effect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 80, 0), 1F)
+                    .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 300, 0), 1F)
                     .build()))));
+    public static final RegistryObject<Item> COASTAL_STEEP = ITEMS.register("coastal_steep",
+            () -> new ItemNameBlockItem(InitBlocksWD.COASTAL_STEEP.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
+    public static final RegistryObject<Item> COASTAL_STEEP_W = ITEMS.register("coastal_steep_w",
+            () -> new ItemNameBlockItem(InitBlocksWD.COASTAL_STEEP_W.get(),(new Item.Properties())));
+    public static final RegistryObject<Item> COASTAL_STEEP_FIBERS = ITEMS.register("coastal_steep_fibers",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> SILVERAN = ITEMS.register("silveran",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
 //    public static final RegistryObject<Item> SLICING_FROM_COCKED_BEAR_MEAT = ITEMS.register("slicing_from_cocked_bear_meat",
@@ -85,6 +87,8 @@ public class InitItemsWD {
 //    public static final RegistryObject<Item> SLICING_FROM_RAW_BEAR_MEAT = ITEMS.register("slicing_from_raw_bear_meat",
 //            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.7f).alwaysEat().fast()
 //                    .build())));
+    public static final RegistryObject<Item> COASTAL_STEEP_FLOWER = ITEMS.register("coastal_steep_flower",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> COCKED_BEAR_MEAT = ITEMS.register("cocked_bear_meat",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(7).saturationMod(0.6f)
                     .build())));
@@ -100,6 +104,7 @@ public class InitItemsWD {
     public static final RegistryObject<Item> COCKED_SLISING_GOATS_MEAT = ITEMS.register("cocked_slising_goats_meat",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.6f)
                     .build())));
+
     public static final RegistryObject<Item> COCKED_FROG = ITEMS.register("cocked_frog",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
                     .build())));
@@ -107,85 +112,26 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> GLOWING_JAM = ITEMS.register("glowing_jam",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(12).saturationMod(0.8f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f)
                     .build())));
-    public static final RegistryObject<Item> MUSHROOM_ON_STICK = ITEMS.register("mushroom_on_stick",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f)
-                    .effect(new MobEffectInstance(MobEffects.POISON, 40, 0), 0.6F)
-                    .alwaysEat()
-                    .build())));
-    public static final RegistryObject<Item> COCKED_MEDICAL_POTATO = ITEMS.register("cocked_mushroom_on_stick",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(8).saturationMod(0.6f).alwaysEat()
-                    .build())));
+
     public static final RegistryObject<Item> GOAT_MEAT_KEBAB = ITEMS.register("goat_meat_kebab",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.2f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> COCKED_GOAT_MEAT_KEBAB = ITEMS.register("cocked_goat_meat_kebab",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(10).saturationMod(0.8f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> COCKED_FROG_LEGS = ITEMS.register("cocked_frog_legs",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.3f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> COCKED_GOATS_MEAT = ITEMS.register("cocked_goats_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(8).saturationMod(0.4f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
                     .build())));
-    public static final RegistryObject<Item> HOT_COCOA_WITH_SPARKING_POLLEN = ITEMS.register("hot_cocoa_with_sparkling_pollen",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.2f)
-                    .build())));
-    public static final RegistryObject<Item> HUSTING_TWISTER = ITEMS.register("hunting_twister",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(14).saturationMod(0.7f)
-                    .build())));
-    public static final RegistryObject<Item> IRIS = ITEMS.register("iris",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.2f)
-                    .build())));
-    public static final RegistryObject<Item> JAM_INVISIBILITY = ITEMS.register("jam_invisibility",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(14).saturationMod(0.4f)
-                    .build())));
-    public static final RegistryObject<Item> JAM_TONIC = ITEMS.register("jam_tonic",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(9).saturationMod(0.7f)
-                    .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2000, 20), 1F)
-                    .effect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 2000, 3), 1F)
-                    .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 2000, 3), 1F)
-                    .build())));
-    public static final RegistryObject<Item> KRUTNEVY_BREAD = ITEMS.register("krutnevy_bread",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.4f)
-                    .build())));
-    public static final RegistryObject<Item> LEVITAN_JAM = ITEMS.register("levitan_jam",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(15).saturationMod(0.4f)
-                    .build())));
-    public static final RegistryObject<Item> APPLE_JAM = ITEMS.register("apple_jam",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(11).saturationMod(0.7f)
-                    .build())));
-    public static final RegistryObject<Item> BEAR_MEAT_SOUP = ITEMS.register("bear_meat_soup",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(9).saturationMod(0.6f)
-                    .build())));
-    public static final RegistryObject<Item> MEDICAL_POTATO = ITEMS.register("medical_potato",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.6f).alwaysEat()
-                    .effect(new MobEffectInstance(MobEffects.HEAL, 1, 0), 1F)
-                    .build())));
-
-
-
-
-
-    //Предметы
-
-    public static final RegistryObject<Item> ROSE_OF_THE_MURDERER = ITEMS.register("rose_of_the_murderer",
-            () -> new ItemNameBlockItem(InitBlocksWD.ROSE_OF_THE_MURDERER.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES).fireResistant())));
-    public static final RegistryObject<Item> COASTAL_STEEP = ITEMS.register("coastal_steep",
-            () -> new ItemNameBlockItem(InitBlocksWD.COASTAL_STEEP.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
-    public static final RegistryObject<Item> COASTAL_STEEP_W = ITEMS.register("coastal_steep_w",
-            () -> new ItemNameBlockItem(InitBlocksWD.COASTAL_STEEP_W.get(),(new Item.Properties())));
-    public static final RegistryObject<Item> COASTAL_STEEP_FLOWER = ITEMS.register("coastal_steep_flower",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
-    public static final RegistryObject<Item> COASTAL_STEEP_FIBERS = ITEMS.register("coastal_steep_fibers",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> CRIMSON_BONE_MEAL = ITEMS.register("crimson_bone_meal",
             () -> new AnimateItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> WARPED_BONE_MEAL = ITEMS.register("warped_bone_meal",
             () -> new AnimateItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
-    public static final RegistryObject<Item> SOUL_STONE_CHARGED = ITEMS.register("soul_stone_charged",
-            () -> new SoulStoneActive(new Item.Properties().craftRemainder(WizardryDelight.SOUL_STONE_DISCHARGED.get()).stacksTo(1)));
+
     public static final RegistryObject<Item> FIRE_STEM = ITEMS.register("fire_stem",
             () -> new ItemNameBlockItem(InitBlocksWD.FIRE_STEM.get(),(new Item.Properties().fireResistant().tab(ModCreativeTab.BUSHES))));
     public static final RegistryObject<Item> ROSE_OF_GHOSTY_TEARS = ITEMS.register("rose_of_ghosty_tears",
@@ -214,17 +160,47 @@ public class InitItemsWD {
     public static final RegistryObject<Item> GOULASH_WITH_GOAT_MEAT = ITEMS.register("goulash_with_goat_meat",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
                     .build())));
+
     public static final RegistryObject<Item> HAT_HELMET = ITEMS.register("hat_helmet",
             () -> new HatArmorItem(ModArmorMaterials.HAT, EquipmentSlot.HEAD,
                     new Item.Properties().durability(105).tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> HAT_HELMET_CLEAR = ITEMS.register("hat_helmet_clear",
             () -> new ClearHatArmorItem(ModArmorMaterials.HAT_CLEAR, EquipmentSlot.HEAD,
                     new Item.Properties().durability(105).tab(ModCreativeTab.BUSHES)));
+
     public static final RegistryObject<Item> HEALING_DEW = ITEMS.register("healing_dew",
             () -> new AnimateItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+    public static final RegistryObject<Item> HOT_COCOA_WITH_SPARKING_POLLEN = ITEMS.register("hot_cocoa_with_sparkling_pollen",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
+                    .build())));
+    public static final RegistryObject<Item> HUSTING_TWISTER = ITEMS.register("hunting_twister",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
+                    .build())));
+    public static final RegistryObject<Item> IRIS = ITEMS.register("iris",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.6f)
+                    .build())));
+    public static final RegistryObject<Item> JAM_INVISIBILITY = ITEMS.register("jam_invisibility",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.6f)
+                    .build())));
+    public static final RegistryObject<Item> JAM_TONIC = ITEMS.register("jam_tonic",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
+                    .build())));
+    public static final RegistryObject<Item> KRUTNEVY_BREAD = ITEMS.register("krutnevy_bread",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
+                    .build())));
+    public static final RegistryObject<Item> LEVITAN_JAM = ITEMS.register("levitan_jam",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
+                    .build())));
+
     public static final RegistryObject<Item> CLEANING_DECOCTION = ITEMS.register("cleansing_decoction",
             () -> new CleansingDecoction(new Item.Properties().tab(ModCreativeTab.BUSHES).durability(12)));
 
+    public static final RegistryObject<Item> APPLE_JAM = ITEMS.register("apple_jam",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
+                    .build())));
+    public static final RegistryObject<Item> BEAR_MEAT_SOUP = ITEMS.register("bear_meat_soup",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(8).saturationMod(0.6f)
+                    .build())));
     public static final RegistryObject<Item> A_DROP_OF_LOVE = ITEMS.register("a_drop_of_love",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> FLAME_ARROW = ITEMS.register("flame_arrow",
@@ -235,8 +211,13 @@ public class InitItemsWD {
     public static final RegistryObject<Item> DRAGOLIT_GRID = ITEMS.register("dragolit_grid",
             () -> new ItemNameBlockItem(InitBlocksWD.DRAGOLIT_GRID.get(),(new Item.Properties().fireResistant().tab(ModCreativeTab.BUSHES))));
 
+    public static final RegistryObject<Item> MEDICAL_POTATO = ITEMS.register("medical_potato",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.6f).alwaysEat()
+                    .effect(new MobEffectInstance(MobEffects.HEAL, 1, 0), 1F)
+                    .build())));
     public static final RegistryObject<Item> APPLE_FENCE_GATE = ITEMS.register("apple_fence_gate",
             () -> new BurnFences(InitBlocksWD.APPLE_FENCE_GATE.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
+
 
     public static final RegistryObject<Item> APPLE_PRESSURE_PLATE = ITEMS.register("apple_pressure_plate",
             () -> new BurnFences(InitBlocksWD.APPLE_PRESSURE_PLATE.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
@@ -312,7 +293,12 @@ public class InitItemsWD {
     public static final RegistryObject<Item> RING_SUPPLY_DISCHARGED = ITEMS.register("ring_supply_discharged",
             () -> new Item(new Item.Properties().stacksTo(1).durability(40).tab(ModCreativeTab.BUSHES).fireResistant()));
 
-
+    public static final RegistryObject<Item> MUSHROOM_ON_STICK = ITEMS.register("mushroom_on_stick",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.3f).alwaysEat()
+                    .build())));
+    public static final RegistryObject<Item> COCKED_MEDICAL_POTATO = ITEMS.register("cocked_mushroom_on_stick",
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.6f).alwaysEat()
+                    .build())));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
