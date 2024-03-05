@@ -24,7 +24,7 @@ import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Random;
 
-public class HitByBlock {
+public class HitByBlockWD {
 
     public static void execute(LevelAccessor world, double x, double y, double z, BlockState blockstate) {
         BlockPos pos = new BlockPos(x, y, z);
@@ -75,7 +75,16 @@ public class HitByBlock {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.MUSHROOM_STEW, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.BROWN_MUSHROOM) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.MUSHROOM_STEW, 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.WHEAT) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.BREAD, 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.HAY_BLOCK) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.BREAD, 5, 12, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.GRASS) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.WHEAT, 1, 1, InitItemsWD.SPARKLING_POLLEN.get());
+            if (random.nextDouble() < 0.3) { // Шанс 15%
+                processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.WHEAT, 2, 3, InitItemsWD.SPARKLING_POLLEN.get());
+            }
+        } else if (block == Blocks.TALL_GRASS) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.WHEAT, 1, 1, InitItemsWD.SPARKLING_POLLEN.get());
             if (random.nextDouble() < 0.3) { // Шанс 15%
                 processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.WHEAT, 2, 3, InitItemsWD.SPARKLING_POLLEN.get());
