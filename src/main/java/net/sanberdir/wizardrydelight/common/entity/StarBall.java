@@ -15,8 +15,9 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
 import net.sanberdir.wizardrydelight.WizardryDelight;
 import net.sanberdir.wizardrydelight.common.Items.InitItemsWD;
-import net.sanberdir.wizardrydelight.server.procedures.HitByBlock;
-import net.sanberdir.wizardrydelight.server.procedures.HitByEntity;
+import net.sanberdir.wizardrydelight.server.procedures.HitByBlockWD;
+import net.sanberdir.wizardrydelight.server.procedures.HitByEntityWD;
+import net.sanberdir.wizardrydelight.server.procedures.HitByEntityWDFrog;
 
 @OnlyIn(value = Dist.CLIENT, _interface = ItemSupplier.class)
 public class StarBall extends AbstractHurtingProjectileMod implements ItemSupplier {
@@ -38,7 +39,8 @@ public class StarBall extends AbstractHurtingProjectileMod implements ItemSuppli
 
         Entity entity = p_37386_.getEntity();
         if (!this.level.isClientSide) {
-            HitByEntity.execute(level,getX(),getY(),getZ(),entity);
+            HitByEntityWD.execute(level,getX(),getY(),getZ(),entity);
+            HitByEntityWDFrog.execute(level,getX(),getY(),getZ(),entity);
             this.discard();
         }
     }
@@ -47,7 +49,7 @@ public class StarBall extends AbstractHurtingProjectileMod implements ItemSuppli
         super.onHitBlock(p_37384_);
         if (!this.level.isClientSide) {
 
-            HitByBlock.execute(level,getX(),getY(),getZ(),getBlockStateOn());
+            HitByBlockWD.execute(level,getX(),getY(),getZ(),getBlockStateOn());
             WizardryDelight.queueServerWork(2, () -> {
                 this.discard();
             });
@@ -59,7 +61,7 @@ public class StarBall extends AbstractHurtingProjectileMod implements ItemSuppli
         super.onInsideBlock(p_20005_);
 
         if (!this.level.isClientSide) {
-            HitByBlock.execute(level,getX(),getY(),getZ(),getBlockStateOn());
+            HitByBlockWD.execute(level,getX(),getY(),getZ(),getBlockStateOn());
         }
     }
 
