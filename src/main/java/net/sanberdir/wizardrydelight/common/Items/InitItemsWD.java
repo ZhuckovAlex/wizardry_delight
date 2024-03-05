@@ -141,15 +141,15 @@ public class InitItemsWD {
     public static final RegistryObject<Item> JAM_TONIC = ITEMS.register("jam_tonic",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(9).saturationMod(0.7f)
                     .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 2000, 10), 1F)
-                    .effect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 2000, 3), 1F)
-                    .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 2000, 7), 1F)
+                    .effect(new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 4800, 4), 1F)
+                    .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 5000, 8), 1F)
                     .build())));
     public static final RegistryObject<Item> KRUTNEVY_BREAD = ITEMS.register("krutnevy_bread",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.45f)
                     .build())));
     public static final RegistryObject<Item> LEVITAN_JAM = ITEMS.register("levitan_jam",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(15).saturationMod(0.4f)
-                    .effect(new MobEffectInstance(MobEffects.LEVITATION, 3, 100), 1F)
+                    .effect(new MobEffectInstance(MobEffects.LEVITATION, 4, 100), 1F)
                     .effect(new MobEffectInstance(MobEffects.SLOW_FALLING, 200, 10), 1F)
                     .effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 2000, 0), 0.4F)
                     .build())));
