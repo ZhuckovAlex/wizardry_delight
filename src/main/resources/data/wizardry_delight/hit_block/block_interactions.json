@@ -1,0 +1,67 @@
+[
+  {
+    "blockId": "wizardry_delight:coastal_steep",
+    "interactionType": "break",
+    "items": [
+      {
+        "item": "minecraft:string",
+        "chance": 0.15,
+        "quantity": 1
+      },
+      {
+        "item": "wizardry_delight:krutnevy_bread",
+        "chance": 1.0,
+        "quantity": 3
+      },
+      {
+        "item": "wizardry_delight:sparkling_pollen",
+        "chance": 0.15,
+        "quantity": 1
+      }
+    ],
+    "particleEffect": "wizardry_delight:robin_star_particles_projectile",
+    "particleCount": 36,
+    "particleOffset": [0.5, 0.5, 0.5],
+    "particleSpeed": 0.05
+  },
+  {
+    "blockId": "minecraft:cocoa",
+    "interactionType": "break",
+    "items": [
+      {
+        "item": "farmersdelight:hot_cocoa",
+        "chance": 1.0,
+        "quantity": 2
+      },
+      {
+        "item": "wizardry_delight:sparkling_pollen",
+        "chance": 0.15,
+        "quantity": 1
+      }
+    ],
+    "particleEffect": "wizardry_delight:robin_star_particles_projectile",
+    "particleCount": 36,
+    "particleOffset": [0.5, 0.5, 0.5],
+    "particleSpeed": 0.05
+  },
+  {
+    "blockId": "minecraft:bee_nest",
+    "interactionType": "break",
+    "items": [
+      {
+        "item": "minecraft:honey_bottle",
+        "chance": 1.0,
+        "quantity": 5
+      },
+      {
+        "item": "wizardry_delight:sparkling_pollen",
+        "chance": 0.15,
+        "quantity": 1
+      }
+    ],
+    "particleEffect": "wizardry_delight:robin_star_particles_projectile",
+    "particleCount": 36,
+    "particleOffset": [0.5, 0.5, 0.5],
+    "particleSpeed": 0.05
+  }
+]
