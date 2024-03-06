@@ -1,12 +1,18 @@
 package net.sanberdir.wizardrydelight.server.procedures;
 
 
+import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
@@ -22,6 +28,7 @@ import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 
+import java.awt.*;
 import java.util.Random;
 
 public class HitByBlockWD {
@@ -71,6 +78,8 @@ public class HitByBlockWD {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), InitItemsWD.KRUTNEVY_BREAD.get(), 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.OXEYE_DAISY) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.SUNFLOWER) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 2, 4, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.RED_MUSHROOM) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.MUSHROOM_STEW, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.BROWN_MUSHROOM) {
@@ -91,6 +100,16 @@ public class HitByBlockWD {
             }
         } else if (block == Blocks.FERN) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.WHEAT, 1, 1, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.LARGE_FERN) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.WHEAT, 2, 3, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.CRIMSON_FUNGUS) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), ModItems.NETHER_SALAD.get(), 2, 3, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.CRIMSON_ROOTS) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), ModItems.NETHER_SALAD.get(), 2, 3, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.WARPED_ROOTS) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), ModItems.NETHER_SALAD.get(), 2, 3, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.WARPED_FUNGUS) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), ModItems.NETHER_SALAD.get(), 2, 3, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.MUSHROOM_STEM) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.MUSHROOM_STEW, 1, 7, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.RED_MUSHROOM_BLOCK) {
@@ -201,7 +220,30 @@ public class HitByBlockWD {
                 processBlock(world, pos, Blocks.AIR.defaultBlockState(), ModItems.MELON_POPSICLE.get(), 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
             }
         }
+        if (block == InitBlocksWD.A_BLOCK_OF_SPARKING_POLLEN.get()) {
+            // Вызовите функцию взрыва с силой 10
+            explodeSparkingPollen(world, pos, Blocks.AIR.defaultBlockState());
+        }
+        if (block == InitBlocksWD.WIZARD_PIE.get()) {
+            // Вызовите функцию взрыва с силой 10
+            explodeWizardCake(world, pos, Blocks.AIR.defaultBlockState());
+        }
         // Добавьте аналогичные проверки для других блоков, если это необходимо
+    }
+    private static void explodeWizardCake(LevelAccessor world, BlockPos pos, BlockState replacementState) {
+        if (world instanceof ServerLevel serverLevel) {
+            world.setBlock(pos, replacementState, 3);
+            // Создайте взрыв с силой 10 в позиции блока лазурита
+            serverLevel.explode(null, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 4.0F, Explosion.BlockInteraction.BREAK);
+        }
+    }
+    private static void explodeSparkingPollen(LevelAccessor world, BlockPos pos, BlockState replacementState) {
+        if (world instanceof ServerLevel serverLevel) {
+            world.setBlock(pos, replacementState, 3);
+
+            // Создайте взрыв с силой 10 в позиции блока лазурита
+            serverLevel.explode(null, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 10.0F, Explosion.BlockInteraction.BREAK);
+        }
     }
     private static void processBlock(LevelAccessor world, BlockPos pos, BlockState replacementState, Item item, int minStackSize, int maxStackSize, Item particleItem) {
         world.setBlock(pos, replacementState, 3);

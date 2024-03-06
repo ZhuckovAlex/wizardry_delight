@@ -5,11 +5,8 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.food.FoodProperties;
 
-import net.minecraft.world.item.Item;
+import net.minecraft.world.item.*;
 
-import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.RecordItem;
-import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -281,8 +278,10 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> WIZARDRY_DELIGHT_JAM = ITEMS.register("wizardry_delight_jam",
             () -> new RecordItem(8, CustomSoundEvents.WIZARDRY_DELIGHT_JAM.get() ,new Item.Properties().stacksTo(1).tab(ModCreativeTab.BUSHES),16));
-    public static final RegistryObject<Item> BICKLED_SLISH_KEBAB = ITEMS.register("pickled_shish_kebab",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+    public static final RegistryObject<Item>  NOT_PICKLED_SHISH_KEBAB = ITEMS.register("not_pickled_shish_kebab",
+            () -> new NotPickledKebab(new Item.Properties().durability(1500)));
+    public static final RegistryObject<Item>  PICKLED_SHISH_KEBAB = ITEMS.register("pickled_shish_kebab",
+            () -> new PickledKebab(new Item.Properties().tab(ModCreativeTab.BUSHES).craftRemainder(Items.FLOWER_POT)));
     public static final RegistryObject<Item> SPAGA_DRACOLIT = ITEMS.register("spaga_dragolit",
             () -> new Rapier(Tiers.NETHERITE, -2,-1.6f,new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> THE_PILLAGERS_CHEST = ITEMS.register("the_pillagers_chest",
