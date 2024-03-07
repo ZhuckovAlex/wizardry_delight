@@ -35,8 +35,6 @@ public class NotPickledKebab extends Item {
     public static void marinovanie(ItemStack itemstack, Entity entity) {
         {
 
-
-
                     {
                         ItemStack _ist = itemstack;
                         if (_ist.hurt(-1, RandomSource.create(), null)) {

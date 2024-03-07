@@ -133,6 +133,13 @@ public class HitByEntityWD {
                             new EntityBehaviour.ItemDrop(new ItemStack(ModItems.COD_ROLL.get()), 0.45f, 1, 2)
                     )
             )),
+            Map.entry(TropicalFish.class, new EntityBehaviour(
+                    () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cod.death")),
+                    List.of(
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.SPARKLING_POLLEN.get()), 0.3f, 1, 1),
+                            new EntityBehaviour.ItemDrop(new ItemStack(ModItems.FISH_STEW.get()), 0.45f, 1, 2)
+                    )
+            )),
             Map.entry(Salmon.class, new EntityBehaviour(
                     () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.salmon.death")),
                     List.of(
