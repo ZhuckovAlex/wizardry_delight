@@ -1,0 +1,37 @@
+{
+  "parent": "wizardry_delight:adventures/adventures_magic_cook",
+  "criteria": {
+    "charming_berries": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "wizardry_delight:charming_berries"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.adventures.charming_berries.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "wizardry_delight:charming_berries"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.adventures.charming_berries.title"
+    }
+  },
+  "requirements": [
+    [
+      "charming_berries"
+    ]
+  ]
+}
