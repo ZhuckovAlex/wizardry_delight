@@ -5,6 +5,7 @@ import net.minecraft.world.entity.GlowSquid;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.animal.frog.Frog;
 import net.minecraft.world.entity.animal.goat.Goat;
+import net.minecraft.world.entity.monster.EnderMan;
 import net.minecraft.world.entity.monster.Skeleton;
 import net.minecraft.world.entity.monster.Stray;
 import net.minecraft.world.entity.monster.WitherSkeleton;
@@ -27,6 +28,11 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import net.sanberdir.wizardrydelight.common.Items.InitItemsWD;
+import net.sanberdir.wizardrydelight.common.entity.chicken.custom.FeatherChicken;
+import net.sanberdir.wizardrydelight.common.entity.chicken.custom.FeatherChicken2;
+import net.sanberdir.wizardrydelight.common.entity.fat_pig.custom.FatPig;
+import net.sanberdir.wizardrydelight.common.entity.wool_cow.custom.WoolCow;
+import net.sanberdir.wizardrydelight.common.entity.wool_cow.custom.WoolCow2;
 import net.sanberdir.wizardrydelight.common.particle.ModParticles;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
@@ -44,6 +50,43 @@ public class HitByEntityWD {
                             new EntityBehaviour.ItemDrop(new ItemStack(Items.COOKED_PORKCHOP), 1.0f, 1, 3),
                             new EntityBehaviour.ItemDrop(new ItemStack(ModItems.SMOKED_HAM.get()), 0.4f, 1, 2),
                             new EntityBehaviour.ItemDrop(new ItemStack(ModItems.NOODLE_SOUP.get()), 0.3f, 1, 2)
+                    )
+            )),
+            Map.entry(FatPig.class, new EntityBehaviour(
+                    () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.pig.death")),
+                    List.of(
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.SPARKLING_POLLEN.get()), 0.6f, 1, 1),
+                            new EntityBehaviour.ItemDrop(new ItemStack(Items.COOKED_PORKCHOP), 1.0f, 1, 5),
+                            new EntityBehaviour.ItemDrop(new ItemStack(ModItems.SMOKED_HAM.get()), 0.8f, 1, 4),
+                            new EntityBehaviour.ItemDrop(new ItemStack(ModItems.NOODLE_SOUP.get()), 0.6f, 2, 4)
+                    )
+            )),
+            Map.entry(WoolCow.class, new EntityBehaviour(
+                    () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.hurt")),
+                    List.of(
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.SPARKLING_POLLEN.get()), 0.6f, 1, 1),
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.IRIS.get()), 1.0f, 1, 4)
+                    )
+            )),
+            Map.entry(WoolCow2.class, new EntityBehaviour(
+                    () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.cow.hurt")),
+                    List.of(
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.SPARKLING_POLLEN.get()), 0.6f, 1, 1),
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.IRIS.get()), 1.0f, 1, 4)
+                    )
+            )),
+            Map.entry(FeatherChicken.class, new EntityBehaviour(
+                    () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.chicken.hurt")),
+                    List.of(
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.SPARKLING_POLLEN.get()), 0.6f, 1, 1),
+                            new EntityBehaviour.ItemDrop(new ItemStack(ModItems.CHICKEN_SOUP.get()), 1.0f, 1, 4)
+                    )
+            )),
+            Map.entry(FeatherChicken2.class, new EntityBehaviour(
+                    () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.chicken.hurt")),
+                    List.of(
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.SPARKLING_POLLEN.get()), 0.6f, 1, 1),
+                            new EntityBehaviour.ItemDrop(new ItemStack(ModItems.CHICKEN_SOUP.get()), 1.0f, 1, 4)
                     )
             )),
             Map.entry(Hoglin.class, new EntityBehaviour(
@@ -154,6 +197,14 @@ public class HitByEntityWD {
                             new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.SPARKLING_POLLEN.get()), 0.3f, 1, 1),
                             new EntityBehaviour.ItemDrop(new ItemStack(ModItems.SQUID_INK_PASTA.get()), 1.0f, 1, 2),
                             new EntityBehaviour.ItemDrop(new ItemStack(ModItems.SQUID_INK_PASTA.get()), 0.45f, 1, 2)
+                    )
+            )),
+            Map.entry(EnderMan.class, new EntityBehaviour(
+                    () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.enderman.hurt")),
+                    List.of(
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.SPARKLING_POLLEN.get()), 0.3f, 1, 1),
+                            new EntityBehaviour.ItemDrop(new ItemStack(Items.CHORUS_FRUIT), 1.0f, 1, 2),
+                            new EntityBehaviour.ItemDrop(new ItemStack(Items.CHORUS_FRUIT), 0.45f, 1, 2)
                     )
             )),
             Map.entry(GlowSquid.class, new EntityBehaviour(

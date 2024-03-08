@@ -6,6 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
@@ -16,6 +17,14 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.common.PlantType;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.sanberdir.wizardrydelight.WizardryDelight;
+
+import java.util.Collections;
+import java.util.List;
+@Mod.EventBusSubscriber(modid = WizardryDelight.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 
 public class StombleRose extends Block implements net.minecraftforge.common.IPlantable {
 
@@ -63,12 +72,23 @@ public class StombleRose extends Block implements net.minecraftforge.common.IPla
             if (p_58241_ instanceof LivingEntity) {
                 LivingEntity livingentity = (LivingEntity)p_58241_;
                 p_58241_.hurt(new DamageSource("magic").bypassArmor(), 2);
+                livingentity.getPersistentData().putBoolean("PreventDrops", true);
 
             }
-
         }
     }
+    @SubscribeEvent
+    public static void onLivingDrops(LivingDropsEvent event) {
+        LivingEntity entity = event.getEntity();
 
+        if (entity != null && entity.getPersistentData().contains("PreventDrops")) {
+            boolean preventDrops = entity.getPersistentData().getBoolean("PreventDrops");
+
+            if (preventDrops) {
+                event.getDrops().clear();
+            }
+        }
+    }
 
     @Override
     public BlockState getPlant(BlockGetter world, BlockPos pos) {

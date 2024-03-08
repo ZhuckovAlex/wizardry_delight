@@ -2,7 +2,7 @@
   "criteria": {
     "magic_adventure": {
       "conditions": {},
-      "trigger": "minecraft:consume_item"
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "display": {

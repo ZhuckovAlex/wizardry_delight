@@ -1,17 +1,25 @@
 {
   "parent": "wizardry_delight:adventures/adventures_magic_cook",
   "criteria": {
-    "fire_stem": {
+    "requirement": {
+      "trigger": "minecraft:location",
       "conditions": {
-        "items": [
+        "player": [
           {
-            "items": [
-              "wizardry_delight:fire_stem"
-            ]
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "block": {
+                  "blocks": [
+                    "wizardry_delight:fire_stem"
+                  ]
+                }
+              }
+            }
           }
         ]
-      },
-      "trigger": "minecraft:inventory_changed"
+      }
     }
   },
   "display": {
@@ -19,8 +27,8 @@
     "description": {
       "translate": "advancements.adventures.fire_stem.description"
     },
-    "frame": "task",
-    "hidden": false,
+    "frame": "challenge",
+    "hidden": true,
     "icon": {
       "item": "wizardry_delight:fire_stem"
     },
@@ -29,9 +37,7 @@
       "translate": "advancements.adventures.fire_stem.title"
     }
   },
-  "requirements": [
-    [
-      "fire_stem"
-    ]
-  ]
+  "rewards": {
+    "experience": 500
+  }
 }
