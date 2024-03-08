@@ -126,6 +126,8 @@ public class HitByBlockWD {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), ModItems.KELP_ROLL.get(), 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.CAVE_VINES) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), ModItems.GLOW_BERRY_CUSTARD.get(), 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.SWEET_BERRY_BUSH) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), InitItemsWD.SWEET_JAM.get(), 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == ModBlocks.SANDY_SHRUB.get()) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), ModItems.HOT_COCOA.get(), 1, 1, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == ModBlocks.BEETROOT_CRATE.get()) {
