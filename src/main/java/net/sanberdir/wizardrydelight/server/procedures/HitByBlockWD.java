@@ -62,6 +62,11 @@ public class HitByBlockWD {
             if (random.nextDouble() < 0.15) { // Шанс 15%
                 processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
             }
+        } else if (block == Blocks.BEEHIVE) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
+            if (random.nextDouble() < 0.15) { // Шанс 15%
+                processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
+            }
         } else if (block == Blocks.HONEYCOMB_BLOCK) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
             if (random.nextDouble() < 0.15) { // Шанс 15%
