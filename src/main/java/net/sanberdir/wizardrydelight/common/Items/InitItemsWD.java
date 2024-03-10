@@ -232,6 +232,8 @@ public class InitItemsWD {
             () -> new ItemNameBlockItem(InitBlocksWD.SPATIAL_ORCHID.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
     public static final RegistryObject<Item> MEADOW_GOLDEN_FLOWER = ITEMS.register("meadow_golden_flower",
             () -> new ItemNameBlockItem(InitBlocksWD.MEADOW_GOLDEN_FLOWER.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
+    public static final RegistryObject<Item> MEADOW_GOLDEN_FLOWER_INACTIVE = ITEMS.register("meadow_golden_flower_inactive",
+            () -> new ItemNameBlockItem(InitBlocksWD.MEADOW_GOLDEN_FLOWER_INACTIVE.get(),(new Item.Properties())));
     public static final RegistryObject<Item> STRANGE_SCRAP = ITEMS.register("strange_scrap",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).fireResistant()));
     public static final RegistryObject<Item> CLEAR_DRAGOLIT_NUGGET = ITEMS.register("clear_dragolit_nugget",

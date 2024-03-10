@@ -1,12 +1,12 @@
 {
   "parent": "wizardry_delight:adventures/adventures_magic_cook",
   "criteria": {
-    "black_berries": {
+    "charming_berries": {
       "conditions": {
         "items": [
           {
             "items": [
-              "wizardry_delight:black_berries"
+              "wizardry_delight:charming_berries"
             ]
           }
         ]
@@ -17,21 +17,21 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.adventures.black_berries.description"
+      "translate": "advancements.adventures.charming_berries.description"
     },
     "frame": "task",
     "hidden": false,
     "icon": {
-      "item": "wizardry_delight:black_berries"
+      "item": "wizardry_delight:charming_berries"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.adventures.black_berries.title"
+      "translate": "advancements.adventures.charming_berries.title"
     }
   },
   "requirements": [
     [
-      "black_berries"
+      "charming_berries"
     ]
   ]
 }

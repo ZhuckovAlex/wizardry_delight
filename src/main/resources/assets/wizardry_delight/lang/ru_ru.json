@@ -136,7 +136,9 @@
   "item.wizardry_delight.krutnevy_bread": "Крутневый хлеб",
   "item.wizardry_delight.levitan_jam": "Варенье Левитана",
   "item.wizardry_delight.mag_elitra": "§eДраколитры",
-  "item.wizardry_delight.meadow_golden_flower": "Луговой златоцвет",
+  "item.wizardry_delight.meadow_golden_flower": "§eЛуговой златоцвет",
+  "item.wizardry_delight.meadow_golden_flower_inactive": "Неактивный луговой златоцвет",
+
   "item.wizardry_delight.medical_potato": "Лечебная картошка",
   "item.wizardry_delight.mushroom_on_stick": "Грибы на палочке",
   "item.wizardry_delight.not_pickled_shish_kebab": "Шашлык в маринаде",

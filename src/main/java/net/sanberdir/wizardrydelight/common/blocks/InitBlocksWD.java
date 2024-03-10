@@ -68,6 +68,8 @@ public class InitBlocksWD {
             () -> new FlowerPotBlock(SPATIAL_ORCHID.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
     public static final RegistryObject<Block> MEADOW_GOLDEN_FLOWER = registerBlockWithoutBlockItem("meadow_golden_flower",
             () -> new GoldenRose(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
+    public static final RegistryObject<Block> MEADOW_GOLDEN_FLOWER_INACTIVE = registerBlockWithoutBlockItem("meadow_golden_flower_inactive",
+            () -> new GoldenRoseInactive(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> POTTED_MEADOW_GOLDEN_FLOWER = registerBlockWithoutBlockItem("potted_meadow_golden_flower",
             () -> new FlowerPotBlock(MEADOW_GOLDEN_FLOWER.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
     public static final RegistryObject<Block> DRAGOLIT_GRID = registerBlockWithoutBlockItem("dragolit_grid",

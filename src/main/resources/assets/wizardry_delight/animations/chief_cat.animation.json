@@ -1,0 +1,84 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.chief_cat.walk": {
+			"animation_length": 1.08333,
+			"bones": {
+				"front_left_leg": {
+					"rotation": {
+						"0.0": [0, 0, 0.01],
+						"0.25": [-30, 0, 0],
+						"0.5": [17.5, 0, 0],
+						"0.75": [-30, 0, 0]
+					}
+				},
+				"front_right_leg": {
+					"rotation": {
+						"0.0": [0, 0, 0.01],
+						"0.25": [17.5, 0, 0],
+						"0.5": [-35, 0, 0],
+						"0.75": [15, 0, 0]
+					}
+				},
+				"back_left_leg": {
+					"rotation": {
+						"0.0": [0, 0, 0.01],
+						"0.25": [47.5, 0, 0],
+						"0.5": [-47.5, 0, 0],
+						"0.75": [32.5, 0, 0]
+					}
+				},
+				"back_right_leg": {
+					"rotation": {
+						"0.0": [0, 0, 0.01],
+						"0.25": [-47.5, 0, 0],
+						"0.5": [30, 0, 0],
+						"0.75": [-47.5, 0, 0]
+					}
+				},
+				"tail": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": [-47.5, 0, 0]
+				},
+				"tail2": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.5": [20, 0, 0],
+						"1.0": [10, 0, 0]
+					},
+					"position": [0, -5.8, -3]
+				}
+			}
+		},
+		"animation.chief_cat.idle": {
+			"loop": true,
+			"animation_length": 2.08333,
+			"bones": {
+				"tail": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": [-47.5, 0, 0]
+				},
+				"tail2": {
+					"relative_to": {
+						"rotation": "entity"
+					},
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.5": [20, 0, 0],
+						"1.0": [10, 0, 0],
+						"1.5": [20, 0, 0],
+						"2.0": [10, 0, 0]
+					},
+					"position": [0, -5.8, -3]
+				}
+			}
+		}
+	}
+}

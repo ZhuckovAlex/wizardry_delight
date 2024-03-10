@@ -12,7 +12,7 @@
               "location": {
                 "block": {
                   "blocks": [
-                    "wizardry_delight:fire_stem"
+                    "wizardry_delight:spatial_orchid"
                   ]
                 }
               }
@@ -25,16 +25,16 @@
   "display": {
     "announce_to_chat": true,
     "description": {
-      "translate": "advancements.adventures.fire_stem.description"
+      "translate": "advancements.adventures.spatial_orchid.description"
     },
     "frame": "challenge",
     "hidden": true,
     "icon": {
-      "item": "wizardry_delight:fire_stem"
+      "item": "wizardry_delight:spatial_orchid"
     },
     "show_toast": true,
     "title": {
-      "translate": "advancements.adventures.fire_stem.title"
+      "translate": "advancements.adventures.spatial_orchid.title"
     }
   },
   "rewards": {

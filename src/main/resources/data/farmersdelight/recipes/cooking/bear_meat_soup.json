@@ -1,11 +1,14 @@
 {
   "type": "farmersdelight:cooking",
-  "cookingtime": 600,
-  "experience": 3,
+  "cookingtime": 400,
+  "experience": 0.35,
   "container": {
     "item": "minecraft:bowl"
   },
   "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    },
     {
       "item": "farmersdelight:onion"
     },
@@ -13,18 +16,11 @@
       "item": "minecraft:carrot"
     },
     {
-      "item": "minecraft:potato"
-    },
-    {
-      "tag": "forge:crops/cabbage"
-    },
-    {
       "item": "wizardry_delight:raw_bear_meat"
     }
   ],
-  "recipe_book_tab": "bear_meat_soup",
+  "recipe_book_tab": "drinks",
   "result": {
-    "item": "wizardry_delight:bear_meat_soup",
-    "count": 3
+    "item": "wizardry_delight:bear_meat_soup"
   }
 }
