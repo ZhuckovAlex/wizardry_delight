@@ -48,6 +48,7 @@ public class HitByBlockWD {
         Random random = new Random();
 
         if (block == InitBlocksWD.COASTAL_STEEP.get()) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), InitItemsWD.KRUTNEVY_BREAD.get(), 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
             if (random.nextDouble() < 0.15) { // Шанс 15%
                 processBlock(world, pos, Blocks.AIR.defaultBlockState(), InitItemsWD.KRUTNEVY_BREAD.get(), 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
             }
@@ -55,8 +56,9 @@ public class HitByBlockWD {
             Property<?> ageProperty = blockstate.getBlock().getStateDefinition().getProperty("age");
             if (ageProperty instanceof IntegerProperty) {
                 IntegerProperty integerAgeProperty = (IntegerProperty) ageProperty;
-                int ageValue = blockstate.getValue(integerAgeProperty);
-                if (ageValue >= 2 && random.nextDouble() < 0.15) { // Шанс 15%
+                processBlock(world, pos, Blocks.AIR.defaultBlockState(), InitItemsWD.HOT_COCOA_WITH_SPARKING_POLLEN.get(), 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
+
+                if (random.nextDouble() < 0.15) { // Шанс 15%
                     processBlock(world, pos, Blocks.AIR.defaultBlockState(), InitItemsWD.HOT_COCOA_WITH_SPARKING_POLLEN.get(), 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
                 }
             }
@@ -271,7 +273,7 @@ public class HitByBlockWD {
             }
         } else if (block == InitBlocksWD.MEADOW_GOLDEN_FLOWER.get()) {
             // Call the method to spawn smoke particles and heal entities
-            spawnSmokeParticlesAndHeal(world, pos, 5);
+            spawnSmokeParticlesAndHeal(world, pos, 5, pos.getX(), pos.getY(), pos.getZ());
         }
         if (block == InitBlocksWD.A_BLOCK_OF_SPARKING_POLLEN.get()) {
             // Вызовите функцию взрыва с силой 10
@@ -284,12 +286,13 @@ public class HitByBlockWD {
         // Добавьте аналогичные проверки для других блоков, если это необходимо
 
     }
-    private static void spawnSmokeParticlesAndHeal(LevelAccessor world, BlockPos pos, int radius) {
+    private static void spawnSmokeParticlesAndHeal(LevelAccessor world, BlockPos pos, int radius, double x, double y, double z) {
         if (world instanceof ServerLevel serverLevel) {
             // Spawn smoke particles around the Peony
             if (world instanceof ServerLevel _level)
-                serverLevel.sendParticles(ModParticles.GOLDEN_FLOWER_PARTICLES.get(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0.0);
+                serverLevel.sendParticles(ModParticles.GOLDEN_FLOWER_PARTICLES.get(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0.7);
 
+            serverLevel.sendParticles(ModParticles.GOLDEN_FLOWER_PARTICLES.get(), x, y, z, 1, 1, 1, 1, 0.5);
 
 
 

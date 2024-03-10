@@ -227,8 +227,10 @@ public class InitItemsWD {
             () -> new SoulStoneActive(new Item.Properties().craftRemainder(WizardryDelight.SOUL_STONE_DISCHARGED.get()).stacksTo(1)));
     public static final RegistryObject<Item> FIRE_STEM = ITEMS.register("fire_stem",
             () -> new ItemNameBlockItem(InitBlocksWD.FIRE_STEM.get(),(new Item.Properties().fireResistant().tab(ModCreativeTab.BUSHES))));
+    public static final RegistryObject<Item> WD_SPAWNER = ITEMS.register("wd_spawner",
+            () -> new WDSpawner(InitBlocksWD.WD_SPAWNER.get(),(new Item.Properties().fireResistant().tab(ModCreativeTab.BUSHES))));
     public static final RegistryObject<Item> ROSE_OF_GHOSTY_TEARS = ITEMS.register("rose_of_ghosty_tears",
-            () -> new ItemNameBlockItem(InitBlocksWD.ROSE_OF_GHOSTY_TEARS.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES).fireResistant())));
+            () -> new RoseGhostyTears(InitBlocksWD.ROSE_OF_GHOSTY_TEARS.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES).fireResistant())));
     public static final RegistryObject<Item> SPATIAL_ORCHID = ITEMS.register("spatial_orchid",
             () -> new ItemNameBlockItem(InitBlocksWD.SPATIAL_ORCHID.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
     public static final RegistryObject<Item> MEADOW_GOLDEN_FLOWER = ITEMS.register("meadow_golden_flower",
@@ -256,7 +258,7 @@ public class InitItemsWD {
             () -> new ClearHatArmorItem(ModArmorMaterials.HAT_CLEAR, EquipmentSlot.HEAD,
                     new Item.Properties().durability(105).tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> HEALING_DEW = ITEMS.register("healing_dew",
-            () -> new AnimateItem(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+            () -> new HealingDew(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> CLEANING_DECOCTION = ITEMS.register("cleansing_decoction",
             () -> new CleansingDecoction(new Item.Properties().tab(ModCreativeTab.BUSHES).durability(12)));
     public static final RegistryObject<Item> A_DROP_OF_LOVE = ITEMS.register("a_drop_of_love",

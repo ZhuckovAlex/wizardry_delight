@@ -17,6 +17,7 @@ public class Cheese extends Item {
     public Cheese(Properties p_41383_) {
         super(p_41383_);
     }
+
     @Override
     public UseAnim getUseAnimation(ItemStack p_41452_) {
         return UseAnim.DRINK;

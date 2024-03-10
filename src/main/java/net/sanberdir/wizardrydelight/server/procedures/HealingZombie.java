@@ -63,7 +63,7 @@ public class HealingZombie {
                 }
             }
         }
-        if (Math.random() <= 0.3 && !world.getEntitiesOfClass(ZombieVillager.class, AABB.ofSize(new Vec3(x, y, z), 4, 4, 4), e -> true).isEmpty()
+        else if (!world.getEntitiesOfClass(ZombieVillager.class, AABB.ofSize(new Vec3(x, y, z), 4, 4, 4), e -> true).isEmpty()
                 && (sourceentity instanceof LivingEntity _livEnt ? _livEnt.getMainHandItem() : ItemStack.EMPTY).getItem() == InitItemsWD.HEALING_DEW.get().asItem()) {
             if (sourceentity instanceof Player _player) {
                 ItemStack _stktoremove = new ItemStack(InitItemsWD.HEALING_DEW.get());
@@ -80,13 +80,6 @@ public class HealingZombie {
             }
             if (world instanceof ServerLevel _level)
                 _level.sendParticles(ParticleTypes.EXPLOSION, x, y, z, 12, 1.5, 1.5, 1.5, 0.2);
-            if (world instanceof Level _level) {
-                if (!_level.isClientSide()) {
-                    _level.playSound(null, new BlockPos(x, y, z), ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.explode")), SoundSource.NEUTRAL, 1, 1);
-                } else {
-                    _level.playLocalSound(x, y, z, ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.explode")), SoundSource.NEUTRAL, 1, 1, false);
-                }
-            }
         }
     }
 }

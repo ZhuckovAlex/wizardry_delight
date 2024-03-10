@@ -1,5 +1,7 @@
 package net.sanberdir.wizardrydelight.common.Items.customItem;
 
+import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
@@ -9,6 +11,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.sanberdir.wizardrydelight.server.procedures.ProcedureSoulStone;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class SoulStoneActive extends Item {
@@ -18,7 +21,12 @@ public class SoulStoneActive extends Item {
 
     public void appendHoverText(ItemStack itemstack, Level world, List<Component> list, TooltipFlag flag) {
         super.appendHoverText(itemstack, world, list, flag);
-
+        if(Screen.hasShiftDown()) {
+            list.add(Component.translatable("wizardry_delight.press_shift2").withStyle(ChatFormatting.DARK_GRAY));
+            list.add(Component.translatable("wizardry_delight.soul_stone_active").withStyle(ChatFormatting.DARK_PURPLE));
+        } else {
+            list.add(Component.translatable("wizardry_delight.press_shift").withStyle(ChatFormatting.DARK_GRAY));
+        }
         list.add(Component.translatable("wizardry_delight.tag_entity_soul"));
         list.add(Component.literal("§d" + itemstack.getOrCreateTag().getString("name_entity")));
     }

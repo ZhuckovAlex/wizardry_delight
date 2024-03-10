@@ -182,8 +182,8 @@
   "item.wizardry_delight.wizardry_delight_jam.desc": "WD - The tale of how the mage made jam",
   "itemGroup.wizardry_delight": "Wizardry delight",
 
-  "wizardry_delight.press_shift": "Hold down [§7Shift§8], to see the description",
-  "wizardry_delight.press_shift2": "Hold down [§fShift§8], to see the description",
+  "wizardry_delight.press_shift": "Hold down [§7Shift]§8, to see the description",
+  "wizardry_delight.press_shift2": "Hold down [§fShift]§8, to see the description",
 
   "wizardry_delight.progress_kebab": "§aNot pickled yet, we have to wait...",
   "wizardry_delight.result_kebab": "§aMarinated ",

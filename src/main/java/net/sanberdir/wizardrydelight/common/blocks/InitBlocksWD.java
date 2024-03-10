@@ -59,9 +59,9 @@ public class InitBlocksWD {
             () -> new FlowerPotBlock(ROSE_OF_THE_MURDERER.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
     public static final RegistryObject<Block> ROSE_OF_THE_MURDERER2 = registerBlockWithoutBlockItem("rose_of_the_murderer2",
             () -> new StombleRose2(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
-    public static final RegistryObject<Block> WD_SPAWNER = registerBlock("wd_spawner",
+    public static final RegistryObject<Block> WD_SPAWNER = registerBlockWithoutBlockItem("wd_spawner",
             () -> new WDSpawner(BlockBehaviour.Properties.of(Material.STONE).sound(SoundType.STONE)
-                    .noOcclusion().strength(4F).explosionResistance(20F).randomTicks()), ModCreativeTab.BUSHES);
+                    .noOcclusion().strength(4F).explosionResistance(20F).randomTicks()));
     public static final RegistryObject<Block> SPATIAL_ORCHID = registerBlockWithoutBlockItem("spatial_orchid",
             () -> new Orhidea(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> POTTED_SPATIAL_ORCHID = registerBlockWithoutBlockItem("potted_spatial_orchid",
