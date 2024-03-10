@@ -263,7 +263,7 @@ public class HitByBlockWD {
             }
         } else if (block == InitBlocksWD.MEADOW_GOLDEN_FLOWER.get()) {
             // Call the method to spawn smoke particles and heal entities
-            spawnSmokeParticlesAndHeal(world, pos, 10);
+            spawnSmokeParticlesAndHeal(world, pos, 5);
         }
         if (block == InitBlocksWD.A_BLOCK_OF_SPARKING_POLLEN.get()) {
             // Вызовите функцию взрыва с силой 10
@@ -284,22 +284,32 @@ public class HitByBlockWD {
             serverLevel.setBlockAndUpdate(pos, redTulipState);
             // Heal entities within the specified radius
             double radiusSquared = radius * radius;
-            serverLevel.getEntitiesOfClass(Mob.class, new AABB(pos).inflate(radius, radius, radius), mob -> mob.getMobType() == MobType.UNDEAD && !(mob instanceof ZombieVillager))
-                    .forEach(Entity::kill);
+//            serverLevel.getEntitiesOfClass(Mob.class, new AABB(pos).inflate(radius, radius, radius), mob -> mob.getMobType() == MobType.UNDEAD && !(mob instanceof ZombieVillager))
+//                    .forEach(Entity::kill);
             serverLevel.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(radius, radius, radius))
                     .forEach(entity -> {
                         if (entity instanceof LivingEntity) {
-                            ((LivingEntity) entity).heal(20.0f);
+                            ((LivingEntity) entity).setHealth(((LivingEntity) entity).getMaxHealth());
                         }
                     });
 
             // Convert zombie villagers to regular villagers within the specified radius
             serverLevel.getEntitiesOfClass(ZombieVillager.class, new AABB(pos).inflate(radius, radius, radius))
                     .forEach(zombieVillager -> {
-                        Villager villager = new Villager(EntityType.VILLAGER, serverLevel);
-                        villager.copyPosition(zombieVillager);
-                        zombieVillager.discard();
-                        serverLevel.addFreshEntity(villager);
+                            Villager villager = new Villager(EntityType.VILLAGER, serverLevel);
+                            villager.copyPosition(zombieVillager);
+                            zombieVillager.discard();
+                            serverLevel.addFreshEntity(villager);
+
+
+                            serverLevel.getEntitiesOfClass(LivingEntity.class, new AABB(pos).inflate(radius, radius, radius))
+                                    .forEach(entity -> {
+
+                                        // Play healing sound for Villagers
+                                        if (entity instanceof Villager) {
+                                            serverLevel.playSound(null, entity.blockPosition(), SoundEvents.ZOMBIE_VILLAGER_CONVERTED, SoundSource.BLOCKS, 1.0f, 1.0f);
+                                        }
+                                    });
                     });
             serverLevel.playSound(null, pos, SoundEvents.BELL_BLOCK, SoundSource.BLOCKS, 1.0f, 1.0f);
         }
