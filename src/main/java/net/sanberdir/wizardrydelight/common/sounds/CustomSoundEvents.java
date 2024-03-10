@@ -14,6 +14,8 @@ public class CustomSoundEvents {
 
     public static final RegistryObject<SoundEvent> NYAMNYAM =
             registerSoundEvent("nyamnyam");
+    public static final RegistryObject<SoundEvent> GOLDEN_FLOWER =
+            registerSoundEvent("golden_flower");
     public static final RegistryObject<SoundEvent> ROBIN_STICK =
             registerSoundEvent("robin_stick");
     public static final RegistryObject<SoundEvent> NYAMNYAM_END =

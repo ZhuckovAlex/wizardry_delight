@@ -3,6 +3,8 @@ package net.sanberdir.wizardrydelight.server.procedures;
 
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleOptions;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.server.level.ServerLevel;
@@ -30,6 +32,7 @@ import net.minecraft.world.phys.AABB;
 import net.sanberdir.wizardrydelight.common.Items.InitItemsWD;
 import net.sanberdir.wizardrydelight.common.blocks.InitBlocksWD;
 import net.sanberdir.wizardrydelight.common.particle.ModParticles;
+import net.sanberdir.wizardrydelight.common.sounds.CustomSoundEvents;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
@@ -284,7 +287,14 @@ public class HitByBlockWD {
     private static void spawnSmokeParticlesAndHeal(LevelAccessor world, BlockPos pos, int radius) {
         if (world instanceof ServerLevel serverLevel) {
             // Spawn smoke particles around the Peony
-            serverLevel.sendParticles(ModParticles.ROBIN_STAR_PARTICLES_PROJECTILE.get(), pos.getX(), pos.getY(), pos.getZ(), 36, 2, 2, 2, 0.1f);
+            if (world instanceof ServerLevel _level)
+                serverLevel.sendParticles(ModParticles.GOLDEN_FLOWER_PARTICLES.get(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0);
+
+            // Spawn Flash particle in the center of the block
+            ParticleOptions flashParticle = ModParticles.GOLDEN_FLOWER_PARTICLES.get();
+            serverLevel.sendParticles(flashParticle, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0);
+
+
             BlockState redTulipState = InitBlocksWD.MEADOW_GOLDEN_FLOWER_INACTIVE.get().defaultBlockState();
             serverLevel.setBlockAndUpdate(pos, redTulipState);
             // Heal entities within the specified radius
@@ -316,7 +326,7 @@ public class HitByBlockWD {
                                         }
                                     });
                     });
-            serverLevel.playSound(null, pos, SoundEvents.BELL_BLOCK, SoundSource.BLOCKS, 1.0f, 1.0f);
+            serverLevel.playSound(null, pos, CustomSoundEvents.GOLDEN_FLOWER.get(), SoundSource.BLOCKS, 1.0f, 1.0f);
         }
     }
     private static void explodeWizardCake(LevelAccessor world, BlockPos pos, BlockState replacementState) {

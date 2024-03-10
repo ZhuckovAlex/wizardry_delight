@@ -17,6 +17,7 @@ import net.sanberdir.wizardrydelight.common.Items.customItem.HatArmorItem;
 import net.sanberdir.wizardrydelight.common.armor.entity.custom.armor.ClearHatArmorRenderer;
 import net.sanberdir.wizardrydelight.common.armor.entity.custom.armor.HatArmorRenderer;
 import net.sanberdir.wizardrydelight.common.particle.ModParticles;
+import net.sanberdir.wizardrydelight.common.particle.custom.GoldenFlowerParticle;
 import net.sanberdir.wizardrydelight.common.particle.custom.RobinStarsParticles;
 import net.sanberdir.wizardrydelight.common.particle.custom.RobinStarsParticlesProjectile;
 import net.sanberdir.wizardrydelight.common.particle.custom.StombleRoseParticles;
@@ -41,6 +42,8 @@ public class ModEventClientBusEvents {
 
             Minecraft.getInstance().particleEngine.register(ModParticles.ROBIN_STAR_PARTICLES_PROJECTILE.get(),
                     RobinStarsParticlesProjectile.Provider::new);
+            Minecraft.getInstance().particleEngine.register(ModParticles.GOLDEN_FLOWER_PARTICLES.get(),
+                    GoldenFlowerParticle.Provider::new);
 
             Minecraft.getInstance().particleEngine.register(ModParticles.STOMBLE_ROSE.get(),
                     StombleRoseParticles.Provider::new);

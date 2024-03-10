@@ -13,6 +13,20 @@
       }
     ]
   },
+  "golden_flower": {
+    "subtitle": "sounds.wizardry_delight.golden_flower",
+    "sounds": [
+      {
+        "name": "wizardry_delight:golden_flower"
+      },
+      {
+        "name": "wizardry_delight:golden_flower1"
+      },
+      {
+        "name": "wizardry_delight:golden_flower2"
+      }
+    ]
+  },
   "nyamnyam_end": {
     "subtitle": "sounds.wizardry_delight.nyamnyam",
     "sounds": [
