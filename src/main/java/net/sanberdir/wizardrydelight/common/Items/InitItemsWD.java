@@ -106,7 +106,7 @@ public class InitItemsWD {
                     .effect(new MobEffectInstance(MobEffects.GLOWING, 220, 0), 1F)
                     .build())));
     public static final RegistryObject<Item> MUSHROOM_ON_STICK = ITEMS.register("mushroom_on_stick",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.1f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.1f)
                     .effect(new MobEffectInstance(MobEffects.POISON, 120, 0), 0.6F)
                     .alwaysEat()
                     .build())));
