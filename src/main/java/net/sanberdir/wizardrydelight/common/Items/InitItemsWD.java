@@ -66,7 +66,7 @@ public class InitItemsWD {
             () -> new Cheese(new Item.Properties().food(new FoodProperties.Builder().nutrition(20).saturationMod(1f)
                     .build())));
     public static final RegistryObject<Item> CHARMING_JAM = ITEMS.register("charming_jam",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(100).saturationMod(0.3f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(10).saturationMod(0.3f)
                     .effect(new MobEffectInstance(MobEffects.MOVEMENT_SPEED, 200, 1), 0.2F)
                     .effect(new MobEffectInstance(MobEffects.DIG_SPEED, 1200, 0), 0.4F)
                     .effect(new MobEffectInstance(MobEffects.BLINDNESS, 120, 0), 0.6F)
@@ -177,13 +177,13 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(12).saturationMod(0.8f)
                     .build())));
     public static final RegistryObject<Item> RAW_BEAR_MEAT = ITEMS.register("raw_bear_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.6f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> RAW_GOATS_MEAT = ITEMS.register("raw_goats_meat",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.09f)
                     .build())));
     public static final RegistryObject<Item> RAW_SLISING_GOATS_MEAT = ITEMS.register("raw_slising_goats_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.04f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.04f)
                     .build())));
     public static final RegistryObject<Item> RAW_HORSE = ITEMS.register("raw_horse",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.09f)
