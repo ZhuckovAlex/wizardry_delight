@@ -28,8 +28,8 @@ public class InitBlocksWD {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, WizardryDelight.MOD_ID);
 
-    public static final RegistryObject<Block> DRYER = registerBlock("dryer",
-            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()),ModCreativeTab.BUSHES);
+//    public static final RegistryObject<Block> DRYER = registerBlock("dryer",
+//            () -> new Block(BlockBehaviour.Properties.of(Material.WOOD).sound(SoundType.WOOD).noOcclusion()),ModCreativeTab.BUSHES);
     public static final RegistryObject<Block> SUGAR_SACK = registerBlock("sugar_sack",
             () -> new FacingBlock(BlockBehaviour.Properties.of(Material.DIRT).sound(SoundType.WOOL).noOcclusion()), ModCreativeTab.BUSHES);
     public static final RegistryObject<Block> POISON_BERRY = registerBlockWithoutBlockItem("poison_berry",
