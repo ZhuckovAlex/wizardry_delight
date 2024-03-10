@@ -195,7 +195,7 @@ public class InitItemsWD {
                     .effect(new MobEffectInstance(MobEffects.HEALTH_BOOST, 3300, 4), 0.95F)
                     .build())));
     public static final RegistryObject<Item> SUGAR_REFINED = ITEMS.register("sugar_refined",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(4).saturationMod(1f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.5f)
                     .build())));
     public static final RegistryObject<Item> SWEET_JAM = ITEMS.register("sweet_jam",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(9).saturationMod(0.6f)
