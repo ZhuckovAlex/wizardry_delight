@@ -288,11 +288,9 @@ public class HitByBlockWD {
         if (world instanceof ServerLevel serverLevel) {
             // Spawn smoke particles around the Peony
             if (world instanceof ServerLevel _level)
-                serverLevel.sendParticles(ModParticles.GOLDEN_FLOWER_PARTICLES.get(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0);
+                serverLevel.sendParticles(ModParticles.GOLDEN_FLOWER_PARTICLES.get(), pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0.0);
 
-            // Spawn Flash particle in the center of the block
-            ParticleOptions flashParticle = ModParticles.GOLDEN_FLOWER_PARTICLES.get();
-            serverLevel.sendParticles(flashParticle, pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5, 1, 0, 0, 0, 0);
+
 
 
             BlockState redTulipState = InitBlocksWD.MEADOW_GOLDEN_FLOWER_INACTIVE.get().defaultBlockState();

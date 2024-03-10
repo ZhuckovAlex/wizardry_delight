@@ -28,7 +28,7 @@ public class GoldenFlowerParticle extends SimpleAnimatedParticle {
         this.y = y + 0;
         this.z = z + 0;
 
-        this.lifetime = 15;
+        this.lifetime = 10;
         this.setSpriteFromAge(spriteSet);
         this.hasPhysics = true;
 
