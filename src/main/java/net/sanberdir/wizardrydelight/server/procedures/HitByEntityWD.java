@@ -128,6 +128,12 @@ public class HitByEntityWD {
                             new EntityBehaviour.ItemDrop(new ItemStack(Items.RABBIT_FOOT), 0.3f, 1, 2)
                     )
             )),
+            Map.entry(Turtle.class, new EntityBehaviour(
+                    () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.turtle.death")),
+                    List.of(
+                            new EntityBehaviour.ItemDrop(new ItemStack(InitItemsWD.TURTLE_SOUP.get()), 1f, 1, 3)
+                    )
+            )),
             Map.entry(Sheep.class, new EntityBehaviour(
                     () -> ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.sheep.death")),
                     List.of(
@@ -265,7 +271,35 @@ public class HitByEntityWD {
                 .findFirst()
                 .orElse(null);
 
-        if (behaviour == null) return;
+        if (behaviour == null) {
+            // Если сущность не в списке, применяем отталкивание
+            // Применяем отталкивание
+            double knockbackStrength = 5.0; // Сила отталкивания
+            double knockbackX = entity.getX() - x; // Направление по оси X
+            double knockbackZ = entity.getZ() - z; // Направление по оси Z
+
+// Вычисляем угол
+            double angle = Math.atan2(knockbackZ, knockbackX);
+
+// Расстояние, на которое будет отталкиваться сущность
+            double distance = 5.0;
+
+// Вычисляем новые координаты
+            double newX = entity.getX() + distance * Math.cos(angle);
+            double newZ = entity.getZ() + distance * Math.sin(angle);
+
+            if (entity instanceof LivingEntity) {
+                // Проверяем, является ли сущность живой
+                LivingEntity livingEntity = (LivingEntity) entity;
+
+                // Применяем отталкивание
+                livingEntity.push(knockbackX, 0.5, knockbackZ);
+                if (world instanceof ServerLevel serverLevel) {
+                    serverLevel.sendParticles(ModParticles.ROBIN_STAR_PARTICLES_PROJECTILE.get(), x, y, z, 36, 0.5, 0.5, 0.5, 0.05f);
+                }
+            }
+            return; // Прекращаем выполнение метода, если сущность не в списке
+        }
 
         if (!world.isClientSide()) {
             playSound(world, x, y, z, behaviour.getDeathSound(), SoundSource.NEUTRAL, 1, 1);
@@ -279,6 +313,7 @@ public class HitByEntityWD {
         // Discard the entity
         entity.discard();
     }
+
 
     private static void playSound(LevelAccessor world, double x, double y, double z, Supplier<SoundEvent> soundSupplier, SoundSource source, float volume, float pitch) {
         SoundEvent sound = soundSupplier.get();

@@ -62,21 +62,6 @@ public class HitByBlockWD {
                     processBlock(world, pos, Blocks.AIR.defaultBlockState(), InitItemsWD.HOT_COCOA_WITH_SPARKING_POLLEN.get(), 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
                 }
             }
-        } else if (block == Blocks.BEE_NEST) {
-            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
-            if (random.nextDouble() < 0.15) { // Шанс 15%
-                processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
-            }
-        } else if (block == Blocks.BEEHIVE) {
-            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
-            if (random.nextDouble() < 0.15) { // Шанс 15%
-                processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
-            }
-        } else if (block == Blocks.HONEYCOMB_BLOCK) {
-            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
-            if (random.nextDouble() < 0.15) { // Шанс 15%
-                processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 3, InitItemsWD.SPARKLING_POLLEN.get());
-            }
         } else if (block == InitBlocksWD.CHARMING_BERRIES_BLOCK.get()) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), InitItemsWD.CHARMING_JAM.get(), 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == InitBlocksWD.POISON_BERRY.get()) {
