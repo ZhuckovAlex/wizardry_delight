@@ -6,26 +6,9 @@
     "item": "minecraft:bowl"
   },
   "ingredients": [
-    [
-      {
-        "item": "farmersdelight:onion"
-      },
-      {
-        "item": "minecraft:carrot"
-      },
-      {
-        "item": "minecraft:potato"
-      },
-      {
-        "tag": "forge:crops/cabbage"
-      },
-      {
-        "tag": "minecraft:mushrooms"
-      },
-      {
-        "item": "minecraft:beetroot"
-      }
-    ],
+    {
+      "item": "wizardry_delight:silveran"
+    },
     {
       "item": "wizardry_delight:freeze_jam"
     },

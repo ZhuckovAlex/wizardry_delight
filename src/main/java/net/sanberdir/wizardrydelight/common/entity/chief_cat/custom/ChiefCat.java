@@ -63,7 +63,7 @@ public class ChiefCat extends Animal implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.25D));
+        this.goalSelector.addGoal(1, new PanicGoal(this, 1.2D));
         this.goalSelector.addGoal(3, new BreedGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -73,7 +73,7 @@ public class ChiefCat extends Animal implements IAnimatable {
     public static AttributeSupplier setAttributes() {
         return Animal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 25.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.6f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.3f).build();
     }
     protected SoundEvent getAmbientSound() {
         return SoundEvents.CAT_AMBIENT;
@@ -85,10 +85,6 @@ public class ChiefCat extends Animal implements IAnimatable {
 
     protected SoundEvent getDeathSound() {
         return SoundEvents.CAT_DEATH;
-    }
-
-    protected void playStepSound(BlockPos p_29492_, BlockState p_29493_) {
-        this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);
     }
 
     @Override

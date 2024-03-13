@@ -13,6 +13,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.item.ItemEntity;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.ZombieVillager;
 import net.minecraft.world.entity.npc.Villager;
@@ -273,7 +274,30 @@ public class HitByBlockWD {
             explodeWizardCake(world, pos, Blocks.AIR.defaultBlockState());
         }
         // Добавьте аналогичные проверки для других блоков, если это необходимо
+// Добавьте этот блок в начале вашего метода execute
+        if (block == Blocks.VINE) {
+            if (random.nextDouble() < 0.3) { // Шанс 15%
 
+                // Вызовите функцию, которая превращает блок vine в крипера
+                transformVineToCreeper(world, pos);
+            }
+            return; // Прервите выполнение метода, чтобы избежать выполнения других условий для блока vine
+        }
+    }
+    // Добавьте этот метод в ваш класс HitByBlockWD
+    private static void transformVineToCreeper(LevelAccessor world, BlockPos pos) {
+        if (world instanceof ServerLevel serverLevel) {
+            // Замените блок vine на воздух
+            serverLevel.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+
+            // Создайте крипера вместо блока vine
+            Creeper creeper = EntityType.CREEPER.create(serverLevel);
+            creeper.moveTo(pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, 0.0f, 0.0f);
+            serverLevel.addFreshEntity(creeper);
+
+            // Проиграйте звук создания крипера
+            serverLevel.playSound(null, creeper.blockPosition(), SoundEvents.CREEPER_HURT, SoundSource.BLOCKS, 1.0f, 1.0f);
+        }
     }
     private static void spawnSmokeParticlesAndHeal(LevelAccessor world, BlockPos pos, int radius, double x, double y, double z) {
         if (world instanceof ServerLevel serverLevel) {

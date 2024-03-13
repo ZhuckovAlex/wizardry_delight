@@ -71,12 +71,12 @@ public class WoolCow2 extends WoolCow {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
         this.eatBlockGoal = new EatBlockGoal(this);
-        this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.of(Items.WHEAT), false));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.of(InitItemsWD.COASTAL_STEEP_FIBERS.get()), false));
-        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.of(InitItemsWD.COASTAL_STEEP_FLOWER.get()), false));
-        this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25D));
+        this.goalSelector.addGoal(1, new PanicGoal(this, 1.2D));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 0.7D));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 0.7D, Ingredient.of(Items.WHEAT), false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 0.7D, Ingredient.of(InitItemsWD.COASTAL_STEEP_FIBERS.get()), false));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 0.7D, Ingredient.of(InitItemsWD.COASTAL_STEEP_FLOWER.get()), false));
+        this.goalSelector.addGoal(4, new FollowParentGoal(this, 0.7D));
         this.goalSelector.addGoal(5, this.eatBlockGoal);
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));

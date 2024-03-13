@@ -48,6 +48,7 @@ public class InitItemsWD {
                     .build())));
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese",
             () -> new Cheese(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(20).saturationMod(1f)
+                    .effect(new MobEffectInstance(MobEffects.REGENERATION, 160, 0), 1F)
                     .build())));
     public static final RegistryObject<Item> FREEZE_JAM = ITEMS.register("freeze_jam",
             () -> new Jam(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().alwaysEat().nutrition(10).saturationMod(0.3f)
@@ -61,9 +62,11 @@ public class InitItemsWD {
                     .build())));
     public static final RegistryObject<Item> CHEESE_1 = ITEMS.register("cheese_1",
             () -> new Cheese1(new Item.Properties().food(new FoodProperties.Builder().nutrition(20).saturationMod(1f)
+                    .effect(new MobEffectInstance(MobEffects.REGENERATION, 160, 0), 1F)
                     .build())));
     public static final RegistryObject<Item> CHEESE_2 = ITEMS.register("cheese_2",
             () -> new Cheese2(new Item.Properties().food(new FoodProperties.Builder().nutrition(20).saturationMod(1f)
+                    .effect(new MobEffectInstance(MobEffects.REGENERATION, 160, 0), 1F)
                     .build())));
     public static final RegistryObject<Item> CHARMING_JAM = ITEMS.register("charming_jam",
             () -> new Jam(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().alwaysEat().nutrition(10).saturationMod(0.3f)

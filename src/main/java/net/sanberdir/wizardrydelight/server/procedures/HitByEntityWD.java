@@ -272,25 +272,20 @@ public class HitByEntityWD {
                 .orElse(null);
 
         if (behaviour == null) {
-            // Если сущность не в списке, применяем отталкивание
+            double knockbackStrength = 20.0; // Увеличьте силу отталкивания до 20.0
+
             // Применяем отталкивание
-            double knockbackStrength = 15.0; // Сила отталкивания
-            double knockbackX = entity.getX() - x; // Направление по оси X
-            double knockbackZ = entity.getZ() - z; // Направление по оси Z
-
-// Вычисляем угол
-            double angle = Math.atan2(knockbackZ, knockbackX);
-
-// Расстояние, на которое будет отталкиваться сущность
-            double distance = 15.0;
-
-// Вычисляем новые координаты
-            double newX = entity.getX() + distance * Math.cos(angle);
-            double newZ = entity.getZ() + distance * Math.sin(angle);
-
             if (entity instanceof LivingEntity) {
-                // Проверяем, является ли сущность живой
                 LivingEntity livingEntity = (LivingEntity) entity;
+
+                double knockbackX = entity.getX() - x;
+                double knockbackZ = entity.getZ() - z;
+
+                // Умножаем направление отталкивания на силу отталкивания
+                double knockbackForceX = knockbackX * knockbackStrength;
+                double knockbackForceZ = knockbackZ * knockbackStrength;
+
+                livingEntity.push(knockbackForceX, 0.5, knockbackForceZ);
 
                 // Применяем отталкивание
                 livingEntity.push(knockbackX, 0.7, knockbackZ);
