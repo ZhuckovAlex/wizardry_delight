@@ -157,8 +157,8 @@ public class InitBlocksWD {
                     .randomTicks().instabreak().sound(SoundType.GRASS)));
     public static final RegistryObject<Block> POTTED_APPLE_SAPLING = registerBlockWithoutBlockItem("potted_apple_sapling",
             () -> new FlowerPotBlock(APPLE_SAPLING.get(),BlockBehaviour.Properties.of(Material.PLANT).instabreak().sound(SoundType.STONE)));
-    public static final RegistryObject<Block> WIZARD_PIE = registerBlock("wizard_pie",
-            () -> new WizardPie(BlockBehaviour.Properties.of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL).randomTicks()), ModCreativeTab.BUSHES);
+    public static final RegistryObject<Block> WIZARD_PIE = registerBlockWithoutBlockItem("wizard_pie",
+            () -> new WizardPie(BlockBehaviour.Properties.of(Material.CAKE).strength(0.5F).sound(SoundType.WOOL).randomTicks()));
     public static final RegistryObject<Block> A_BLOCK_OF_SPARKING_POLLEN = registerBlock("a_block_of_sparkling_pollen",
             () -> new FallingBlock(BlockBehaviour.Properties.of(Material.SAND).strength(0.2F, 30)
                     .sound(SoundType.SAND)), ModCreativeTab.BUSHES);

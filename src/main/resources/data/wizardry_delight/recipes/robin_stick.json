@@ -11,14 +11,17 @@
     "C": {
       "item": "minecraft:nether_star"
     },
+    "D": {
+      "item": "minecraft:red_wool"
+    },
     "#": {
-      "item": "wizardry_delight:clear_dragolit_nugget"
+      "item": "wizardry_delight:dragolit_ingot"
     }
   },
   "pattern": [
-    " C ",
-    "#B#",
-    " A "
+    " BC",
+    "#AB",
+    "D# "
   ],
   "result": {
     "count": 1,

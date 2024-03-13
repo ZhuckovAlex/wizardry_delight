@@ -223,6 +223,20 @@ public class WDSpawner extends BaseEntityBlock implements EntityBlock{
                         return blockEntity.getPersistentData().getString(tag);
                     return "";
                 }
+            }.getValue(world, new BlockPos(x, y, z), "getEntity1")).equals("minecraft:cat")) {
+                if (Math.random() <= 0.04) {
+                    if (world instanceof ServerLevel _level)
+                        _level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+                                "summon wizardry_delight:chief_cat ~0.5 ~1 ~0.5");
+                }
+            }
+            if ((new Object() {
+                public String getValue(LevelAccessor world, BlockPos pos, String tag) {
+                    BlockEntity blockEntity = world.getBlockEntity(pos);
+                    if (blockEntity != null)
+                        return blockEntity.getPersistentData().getString(tag);
+                    return "";
+                }
             }.getValue(world, new BlockPos(x, y, z), "getEntity1")).equals("minecraft:chicken")) {
                 if (Math.random() <= 0.02) {
                     if (world instanceof ServerLevel _level)

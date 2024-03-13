@@ -64,6 +64,8 @@ import net.sanberdir.wizardrydelight.common.entity.boat.ModEntityData;
 import net.sanberdir.wizardrydelight.common.entity.chest_boat.ModChestBoatRenderer;
 import net.sanberdir.wizardrydelight.common.entity.chicken.client.FeatherChicken2Renderer;
 import net.sanberdir.wizardrydelight.common.entity.chicken.client.FeatherChickenRenderer;
+import net.sanberdir.wizardrydelight.common.entity.chief_cat.client.ChiefCatRenderer;
+import net.sanberdir.wizardrydelight.common.entity.chief_cat.custom.ChiefCat;
 import net.sanberdir.wizardrydelight.common.entity.fat_pig.client.FatPigRenderer;
 import net.sanberdir.wizardrydelight.common.entity.gold_sheep.client.GoldSheep2Renderer;
 import net.sanberdir.wizardrydelight.common.entity.gold_sheep.client.GoldSheepRenderer;
@@ -206,6 +208,8 @@ public class WizardryDelight
             InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
                     () ->  SlotTypePreset.RING.getMessageBuilder().build());
             WoodType.register(ModWoodType.APPLE_WOOD);
+            InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE,
+                    () ->  SlotTypePreset.CHARM.getMessageBuilder().build());
         });
     }
     private static final Collection<AbstractMap.SimpleEntry<Runnable, Integer>> workQueue = new ConcurrentLinkedQueue<>();
@@ -254,6 +258,7 @@ public class WizardryDelight
             EntityRenderers.register(ModEntityTypesWD.GOLD_SHEEP.get(), GoldSheepRenderer::new);
             EntityRenderers.register(ModEntityTypesWD.GOLD_SHEEP2.get(), GoldSheep2Renderer::new);
             EntityRenderers.register(ModEntityTypesWD.WOOL_COW.get(), WoolCowRenderer::new);
+            EntityRenderers.register(ModEntityTypesWD.CHIEF_CAT.get(), ChiefCatRenderer::new);
             EntityRenderers.register(ModEntityTypesWD.FAT_PIG.get(), FatPigRenderer::new);
             EntityRenderers.register(ModEntityTypesWD.WOOL_COW2.get(), WoolCow2Renderer::new);
             EntityRenderers.register(EntityTypeInit.FLAME_ARROW.get(), FlameArrowRenderer::new);

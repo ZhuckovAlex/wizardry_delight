@@ -10,6 +10,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sanberdir.wizardrydelight.WizardryDelight;
 import net.sanberdir.wizardrydelight.common.entity.chicken.custom.FeatherChicken;
 import net.sanberdir.wizardrydelight.common.entity.chicken.custom.FeatherChicken2;
+import net.sanberdir.wizardrydelight.common.entity.chief_cat.custom.ChiefCat;
 import net.sanberdir.wizardrydelight.common.entity.fat_pig.custom.FatPig;
 import net.sanberdir.wizardrydelight.common.entity.gold_sheep.custom.GoldSheep;
 import net.sanberdir.wizardrydelight.common.entity.gold_sheep.custom.GoldSheep2;
@@ -19,6 +20,11 @@ import net.sanberdir.wizardrydelight.common.entity.wool_cow.custom.WoolCow2;
 public class ModEntityTypesWD {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES =
             DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, WizardryDelight.MOD_ID);
+    public static final RegistryObject<EntityType<ChiefCat>> CHIEF_CAT =
+            ENTITY_TYPES.register("chief_cat",
+                    () -> EntityType.Builder.of(ChiefCat::new, MobCategory.AMBIENT)
+                            .sized(1.2f, 1.4f)
+                            .build(new ResourceLocation(WizardryDelight.MOD_ID, "chief_cat").toString()));
     public static final RegistryObject<EntityType<FatPig>> FAT_PIG =
             ENTITY_TYPES.register("fat_pig",
                     () -> EntityType.Builder.of(FatPig::new, MobCategory.AMBIENT)

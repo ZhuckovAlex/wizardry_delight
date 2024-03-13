@@ -47,11 +47,11 @@ public class FatPig extends Animal implements IAnimatable, ItemSteerable, Saddle
     }
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.cow", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.fat_pig.walk", true));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.chomper.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.fat_pig.idle", true));
         return PlayState.CONTINUE;
     }
 
@@ -87,7 +87,7 @@ public class FatPig extends Animal implements IAnimatable, ItemSteerable, Saddle
     public static AttributeSupplier setAttributes() {
         return Animal.createMobAttributes()
                 .add(Attributes.MAX_HEALTH, 15.0D)
-                .add(Attributes.MOVEMENT_SPEED, 0.1f).build();
+                .add(Attributes.MOVEMENT_SPEED, 0.2f).build();
     }
 
     @javax.annotation.Nullable

@@ -1,13 +1,10 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.wool_cow.idle": {
+		"animation.wool_cow.walk": {
 			"animation_length": 1.04167,
 			"bones": {
 				"leg1": {
-					"relative_to": {
-						"rotation": "entity"
-					},
 					"rotation": {
 						"0.0": [0, 0, 0.01],
 						"0.2917": [37.5, 0, 0],
@@ -45,7 +42,7 @@
 				}
 			}
 		},
-		"animation.wool_cow.walk": {
+		"animation.wool_cow.idle": {
 			"loop": true,
 			"animation_length": 0.83333
 		}

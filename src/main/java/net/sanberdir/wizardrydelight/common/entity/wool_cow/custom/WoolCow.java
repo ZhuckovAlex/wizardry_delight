@@ -72,11 +72,11 @@ public class WoolCow extends Animal implements IAnimatable, Shearable, net.minec
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.model.cow", true));
+            event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.wool_cow.walk", true));
             return PlayState.CONTINUE;
         }
 
-        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.chomper.idle", true));
+        event.getController().setAnimation(new AnimationBuilder().addAnimation("animation.wool_cow.idle", true));
         return PlayState.CONTINUE;
     }
 

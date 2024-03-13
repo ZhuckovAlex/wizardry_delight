@@ -41,6 +41,7 @@ public class OpenPillagerChest {
             handleRandomItemDrop(entity, Items.DIAMOND, 0.07, 1, 2);
             handleRandomItemDrop(entity, Items.BONE, 0.8, 2, 10);
             handleRandomItemDrop(entity, Items.COAL, 0.6, 2, 10);
+            handleRandomItemDrop(entity, InitItemsWD.THROWING_KNIFE.get(), 0.15, 2, 10);
             handleRandomItemDrop(entity, Items.ARROW, 0.6, 3, 32);
             handleRandomItemDrop(entity, Items.RAW_IRON, 0.7, 2, 8);
             handleRandomItemDrop(entity, InitItemsWD.CHEESE.get(), 1, 1, 1);

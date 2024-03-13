@@ -38,6 +38,7 @@ public class OpenPillagerKIngChest {
             }
             handleRandomItemDrop(entity, Items.DIAMOND, 0.6, 1, 5);
             handleRandomItemDrop(entity, Items.EMERALD, 0.8, 3, 16);
+            handleRandomItemDrop(entity, InitItemsWD.THROWING_KNIFE.get(), 0.45, 2, 10);
             handleRandomItemDrop(entity, Items.GOLD_INGOT, 1, 4, 16);
             handleRandomItemDrop(entity, InitItemsWD.A_DROP_OF_LOVE.get(), 0.5, 1, 2);
             handleRandomItemDrop(entity, InitItemsWD.CHEESE.get(), 1, 1, 2);

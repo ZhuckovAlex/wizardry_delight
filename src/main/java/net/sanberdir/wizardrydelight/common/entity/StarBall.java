@@ -6,7 +6,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.projectile.ItemSupplier;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BeehiveBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
@@ -16,7 +15,6 @@ import net.minecraftforge.network.NetworkHooks;
 import net.minecraftforge.network.PlayMessages;
 import net.sanberdir.wizardrydelight.WizardryDelight;
 import net.sanberdir.wizardrydelight.common.Items.InitItemsWD;
-import net.sanberdir.wizardrydelight.server.procedures.BeehiveHitHandler;
 import net.sanberdir.wizardrydelight.server.procedures.HitByBlockWD;
 import net.sanberdir.wizardrydelight.server.procedures.HitByEntityWD;
 import net.sanberdir.wizardrydelight.server.procedures.HitByEntityWDFrog;
@@ -50,7 +48,6 @@ public class StarBall extends AbstractHurtingProjectileMod implements ItemSuppli
     protected void onHitBlock(BlockHitResult blockHitResult) {
         super.onHitBlock(blockHitResult);
         if (!this.level.isClientSide) {
-            BeehiveHitHandler.handleHit(blockHitResult, level, (BeehiveBlockEntity)level.getBlockEntity(blockHitResult.getBlockPos()));
             HitByBlockWD.execute(level,getX(),getY(),getZ(),getBlockStateOn());
             WizardryDelight.queueServerWork(2, () -> {
                 this.discard();

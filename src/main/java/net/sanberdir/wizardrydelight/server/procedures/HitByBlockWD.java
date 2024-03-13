@@ -81,6 +81,10 @@ public class HitByBlockWD {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.SUNFLOWER) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 2, 4, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.BEE_NEST) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 2, 4, InitItemsWD.SPARKLING_POLLEN.get());
+        } else if (block == Blocks.BEEHIVE) {
+            processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.HONEY_BOTTLE, 2, 4, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.RED_MUSHROOM) {
             processBlock(world, pos, Blocks.AIR.defaultBlockState(), Items.MUSHROOM_STEW, 1, 2, InitItemsWD.SPARKLING_POLLEN.get());
         } else if (block == Blocks.BROWN_MUSHROOM) {

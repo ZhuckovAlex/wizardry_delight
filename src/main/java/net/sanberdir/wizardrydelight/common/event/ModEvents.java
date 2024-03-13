@@ -7,6 +7,7 @@ import net.sanberdir.wizardrydelight.WizardryDelight;
 import net.sanberdir.wizardrydelight.common.entity.ModEntityTypesWD;
 import net.sanberdir.wizardrydelight.common.entity.chicken.custom.FeatherChicken;
 import net.sanberdir.wizardrydelight.common.entity.chicken.custom.FeatherChicken2;
+import net.sanberdir.wizardrydelight.common.entity.chief_cat.custom.ChiefCat;
 import net.sanberdir.wizardrydelight.common.entity.fat_pig.custom.FatPig;
 import net.sanberdir.wizardrydelight.common.entity.gold_sheep.custom.GoldSheep;
 import net.sanberdir.wizardrydelight.common.entity.gold_sheep.custom.GoldSheep2;
@@ -17,6 +18,7 @@ public class ModEvents {
     public static class ModEventBusEvents {
         @SubscribeEvent
         public static void entityAttributeEvent(EntityAttributeCreationEvent event) {
+            event.put(ModEntityTypesWD.CHIEF_CAT.get(), ChiefCat.setAttributes());
             event.put(ModEntityTypesWD.FAT_PIG.get(), FatPig.setAttributes());
             event.put(ModEntityTypesWD.WOOL_COW.get(), WoolCow.setAttributes());
             event.put(ModEntityTypesWD.WOOL_COW2.get(), WoolCow.setAttributes());

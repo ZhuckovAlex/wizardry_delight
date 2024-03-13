@@ -274,7 +274,7 @@ public class HitByEntityWD {
         if (behaviour == null) {
             // Если сущность не в списке, применяем отталкивание
             // Применяем отталкивание
-            double knockbackStrength = 5.0; // Сила отталкивания
+            double knockbackStrength = 15.0; // Сила отталкивания
             double knockbackX = entity.getX() - x; // Направление по оси X
             double knockbackZ = entity.getZ() - z; // Направление по оси Z
 
@@ -282,7 +282,7 @@ public class HitByEntityWD {
             double angle = Math.atan2(knockbackZ, knockbackX);
 
 // Расстояние, на которое будет отталкиваться сущность
-            double distance = 5.0;
+            double distance = 15.0;
 
 // Вычисляем новые координаты
             double newX = entity.getX() + distance * Math.cos(angle);
@@ -293,7 +293,7 @@ public class HitByEntityWD {
                 LivingEntity livingEntity = (LivingEntity) entity;
 
                 // Применяем отталкивание
-                livingEntity.push(knockbackX, 0.5, knockbackZ);
+                livingEntity.push(knockbackX, 0.7, knockbackZ);
                 if (world instanceof ServerLevel serverLevel) {
                     serverLevel.sendParticles(ModParticles.ROBIN_STAR_PARTICLES_PROJECTILE.get(), x, y, z, 36, 0.5, 0.5, 0.5, 0.05f);
                 }

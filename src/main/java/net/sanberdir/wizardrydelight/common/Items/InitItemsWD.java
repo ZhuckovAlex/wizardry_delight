@@ -55,15 +55,15 @@ public class InitItemsWD {
                     .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 2200, 0), 0.7F)
                     .build())));
     public static final RegistryObject<Item> FROG_BODY = ITEMS.register("frog_body",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.5f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(1).saturationMod(0.5f)
                     .effect(new MobEffectInstance(MobEffects.POISON, 40, 0), 0.6F)
                     .effect(new MobEffectInstance(MobEffects.CONFUSION, 120, 0), 0.9F)
                     .build())));
     public static final RegistryObject<Item> CHEESE_1 = ITEMS.register("cheese_1",
-            () -> new Cheese(new Item.Properties().food(new FoodProperties.Builder().nutrition(20).saturationMod(1f)
+            () -> new Cheese1(new Item.Properties().food(new FoodProperties.Builder().nutrition(20).saturationMod(1f)
                     .build())));
     public static final RegistryObject<Item> CHEESE_2 = ITEMS.register("cheese_2",
-            () -> new Cheese(new Item.Properties().food(new FoodProperties.Builder().nutrition(20).saturationMod(1f)
+            () -> new Cheese2(new Item.Properties().food(new FoodProperties.Builder().nutrition(20).saturationMod(1f)
                     .build())));
     public static final RegistryObject<Item> CHARMING_JAM = ITEMS.register("charming_jam",
             () -> new Jam(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().alwaysEat().nutrition(10).saturationMod(0.3f)
@@ -81,25 +81,25 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(12).saturationMod(0.7f).alwaysEat().fast()
                     .build())));
     public static final RegistryObject<Item> COCKED_BEAR_MEAT = ITEMS.register("cocked_bear_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(7).saturationMod(0.6f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(7).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> COCKED_HORSE = ITEMS.register("cocked_horse",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(7).saturationMod(0.6f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(7).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> COCKED_SHPIKACHKI = ITEMS.register("cocked_shpikachki",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(7).saturationMod(0.6f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(7).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> SHPIKACHKI = ITEMS.register("shpikachki",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.3f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.3f)
                     .build())));
     public static final RegistryObject<Item> COCKED_SLISING_GOATS_MEAT = ITEMS.register("cocked_slising_goats_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.6f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(5).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> COCKED_FROG = ITEMS.register("cocked_frog",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(6).saturationMod(0.6f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(6).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> FROG_LEGS = ITEMS.register("frog_legs",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.1f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(1).saturationMod(0.1f)
                     .build())));
     public static final RegistryObject<Item> GLOWING_JAM = ITEMS.register("glowing_jam",
             () -> new Jam(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().alwaysEat().nutrition(14).saturationMod(0.5f)
@@ -114,16 +114,16 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(4).saturationMod(0.6f).alwaysEat()
                     .build())));
     public static final RegistryObject<Item> GOAT_MEAT_KEBAB = ITEMS.register("goat_meat_kebab",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.2f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(2).saturationMod(0.2f)
                     .build())));
     public static final RegistryObject<Item> COCKED_GOAT_MEAT_KEBAB = ITEMS.register("cocked_goat_meat_kebab",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(10).saturationMod(0.8f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(10).saturationMod(0.8f)
                     .build())));
     public static final RegistryObject<Item> COCKED_FROG_LEGS = ITEMS.register("cocked_frog_legs",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.3f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(3).saturationMod(0.3f)
                     .build())));
     public static final RegistryObject<Item> COCKED_GOATS_MEAT = ITEMS.register("cocked_goats_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(8).saturationMod(0.4f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(8).saturationMod(0.4f)
                     .build())));
     public static final RegistryObject<Item> THROWING_KNIFE = ITEMS.register("throwing_knife",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
@@ -131,14 +131,14 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(7).saturationMod(0.4f)
                     .build())));
     public static final RegistryObject<Item> CLEANED_TURTLE_NECK = ITEMS.register("cleaned_turtle_neck",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.4f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(2).saturationMod(0.4f)
                     .build())));
     public static final RegistryObject<Item> PICKLED_TURTLE_NECK = ITEMS.register("pickled_turtle_neck",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(5).saturationMod(0.4f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(5).saturationMod(0.4f)
                     .build())));
 
     public static final RegistryObject<Item> TURTLE_NECK = ITEMS.register("turtle_neck",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(7).saturationMod(0.4f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(7).saturationMod(0.4f)
                     .build())));
     public static final RegistryObject<Item> HOT_COCOA_WITH_SPARKING_POLLEN = ITEMS.register("hot_cocoa_with_sparkling_pollen",
             () -> new MinusEffectBeneficialDrink(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().alwaysEat().nutrition(6).saturationMod(0.2f)
@@ -183,7 +183,7 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.2f)
                     .build()).fireResistant()));
     public static final RegistryObject<Item> GOULASH_WITH_GOAT_MEAT = ITEMS.register("goulash_with_goat_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(10).saturationMod(0.7f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(10).saturationMod(0.7f)
                     .build())));
     public static final RegistryObject<Item> SWEET_ROLL = ITEMS.register("sweet_roll",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(18).saturationMod(0.8f)
@@ -193,16 +193,16 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(12).saturationMod(0.8f)
                     .build())));
     public static final RegistryObject<Item> RAW_BEAR_MEAT = ITEMS.register("raw_bear_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(2).saturationMod(0.6f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(2).saturationMod(0.6f)
                     .build())));
     public static final RegistryObject<Item> RAW_GOATS_MEAT = ITEMS.register("raw_goats_meat",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.09f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(3).saturationMod(0.09f)
                     .build())));
     public static final RegistryObject<Item> RAW_SLISING_GOATS_MEAT = ITEMS.register("raw_slising_goats_meat",
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(1).saturationMod(0.04f)
                     .build())));
     public static final RegistryObject<Item> RAW_HORSE = ITEMS.register("raw_horse",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().nutrition(3).saturationMod(0.09f)
+            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().meat().nutrition(3).saturationMod(0.09f)
                     .build())));
     public static final RegistryObject<Item> POISON_BERRY_JAM = ITEMS.register("poison_berry_jam",
             () -> new Jam(new Item.Properties().tab(ModCreativeTab.BUSHES).food(new FoodProperties.Builder().alwaysEat().nutrition(13).saturationMod(0.3f)
@@ -228,6 +228,8 @@ public class InitItemsWD {
             () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> COASTAL_STEEP = ITEMS.register("coastal_steep",
             () -> new ItemNameBlockItem(InitBlocksWD.COASTAL_STEEP.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
+    public static final RegistryObject<Item> WIZARD_PIE = ITEMS.register("wizard_pie",
+            () -> new ItemNameBlockItem(InitBlocksWD.WIZARD_PIE.get(),(new Item.Properties().tab(ModCreativeTab.BUSHES))));
     public static final RegistryObject<Item> COASTAL_STEEP_W = ITEMS.register("coastal_steep_w",
             () -> new ItemNameBlockItem(InitBlocksWD.COASTAL_STEEP_W.get(),(new Item.Properties())));
     public static final RegistryObject<Item> COASTAL_STEEP_FLOWER = ITEMS.register("coastal_steep_flower",
@@ -265,7 +267,7 @@ public class InitItemsWD {
     public static final RegistryObject<Item> GOLDEN_CHEST_KING_PILLAGER = ITEMS.register("golden_chest_king_pillager",
             () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> GOLDEN_RUNO = ITEMS.register("golden_runo",
-            () -> new Item(new Item.Properties().tab(ModCreativeTab.BUSHES)));
+            () -> new GoldenRuno(new Item.Properties().tab(ModCreativeTab.BUSHES)));
     public static final RegistryObject<Item> HAT_HELMET = ITEMS.register("hat_helmet",
             () -> new HatArmorItem(ModArmorMaterials.HAT, EquipmentSlot.HEAD,
                     new Item.Properties().durability(105).tab(ModCreativeTab.BUSHES)));
@@ -332,7 +334,7 @@ public class InitItemsWD {
     public static final RegistryObject<Item> RING_SUPPLY = ITEMS.register("ring_supply",
             () -> new RingSupply(new Item.Properties().stacksTo(1).durability(40).tab(ModCreativeTab.BUSHES).fireResistant()));
     public static final RegistryObject<Item> RING_SUPPLY_DISCHARGED = ITEMS.register("ring_supply_discharged",
-            () -> new Item(new Item.Properties().stacksTo(1).durability(40).tab(ModCreativeTab.BUSHES).fireResistant()));
+            () -> new Item(new Item.Properties().stacksTo(1).tab(ModCreativeTab.BUSHES).fireResistant()));
 
 
 
