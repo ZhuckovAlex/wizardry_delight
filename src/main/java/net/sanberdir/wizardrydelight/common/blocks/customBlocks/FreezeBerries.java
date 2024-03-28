@@ -9,6 +9,8 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -32,8 +34,8 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import net.sanberdir.wizardrydelight.common.Items.InitItemsWD;
 
 public class FreezeBerries extends BushBlock implements BonemealableBlock {
-    public FreezeBerries(Properties p_51021_) {
-        super(p_51021_);
+    public FreezeBerries(Properties properties) {
+        super(properties);
     }
     private static final float HURT_SPEED_THRESHOLD = 0.003F;
     public static final int MAX_AGE = 3;
@@ -71,29 +73,17 @@ public class FreezeBerries extends BushBlock implements BonemealableBlock {
 
     }
 
-    public void entityInside(BlockState p_154263_, Level p_154264_, BlockPos p_154265_, Entity p_154266_) {
-        if (!(p_154266_ instanceof LivingEntity) || p_154266_.getFeetBlockState().is(this)) {
-            p_154266_.makeStuckInBlock(p_154263_, new Vec3((double)0.9F, 1.5D, (double)0.9F));
-            if (p_154264_.isClientSide) {
-                RandomSource randomsource = p_154264_.getRandom();
-                boolean flag = p_154266_.xOld != p_154266_.getX() || p_154266_.zOld != p_154266_.getZ();
-                if (flag && randomsource.nextBoolean()) {
-                    p_154264_.addParticle(ParticleTypes.SNOWFLAKE, p_154266_.getX(), (double)(p_154265_.getY() + 1), p_154266_.getZ(), (double)(Mth.randomBetween(randomsource, -1.0F, 1.0F) * 0.083333336F), (double)0.05F, (double)(Mth.randomBetween(randomsource, -1.0F, 1.0F) * 0.083333336F));
-                }
-            }
+    public void entityInside(BlockState state, Level world, BlockPos pos, Entity entity) {
+        if (entity instanceof LivingEntity) {
+            LivingEntity livingEntity = (LivingEntity) entity;
+            // Применяем эффект замораживания, скрывая его иконку
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20, 2, false, false, false)); // 5 секунд замораживания с усилением 2
+            // Дополнительные эффекты, если необходимо
+            // Например, применение эффекта "Slowness" для дополнительного замедления, скрывая его иконку
+            livingEntity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 20 * 3, 1, false, false, false)); // 10 секунд замедления с усилением 1
         }
-
-        p_154266_.setIsInPowderSnow(true);
-        if (!p_154264_.isClientSide) {
-            if (p_154266_.isOnFire() && (p_154264_.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING) || p_154266_ instanceof Player) && p_154266_.mayInteract(p_154264_, p_154265_)) {
-                p_154264_.destroyBlock(p_154265_, false);
-            }
-
-            p_154266_.setSharedFlagOnFire(false);
-        }
-
+        entity.setIsInPowderSnow(true);
     }
-
     public InteractionResult use(BlockState p_57275_, Level p_57276_, BlockPos p_57277_, Player p_57278_, InteractionHand p_57279_, BlockHitResult p_57280_) {
         int i = p_57275_.getValue(AGE);
         boolean flag = i == 3;

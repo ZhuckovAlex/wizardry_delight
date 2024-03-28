@@ -49,6 +49,7 @@ public class StarBall extends AbstractHurtingProjectileMod implements ItemSuppli
         super.onHitBlock(blockHitResult);
         if (!this.level.isClientSide) {
             HitByBlockWD.execute(level,getX(),getY(),getZ(),getBlockStateOn());
+            HitByBlockWD.execute(level,getX(),getY(),getZ(),getBlockStateOn());
             WizardryDelight.queueServerWork(2, () -> {
                 this.discard();
             });

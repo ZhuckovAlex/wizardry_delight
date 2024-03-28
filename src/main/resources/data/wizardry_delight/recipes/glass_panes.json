@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "planks",
+  "ingredients": [
+    {
+      "tag": "wizardry_delight:glass_panes"
+    },
+    {
+      "item": "wizardry_delight:cleansing_decoction"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "item": "minecraft:glass_pane"
+  }
+}
