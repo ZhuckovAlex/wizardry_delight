@@ -1,13 +1,16 @@
 package net.sanberdir.wizardrydelight.common.blocks.customBlocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -27,20 +30,22 @@ public class Orhidea extends Block implements net.minecraftforge.common.IPlantab
         return context.getItemInHand().getItem() != this.asItem();
     }
 
-    public boolean canSurvive(BlockState p_57175_, LevelReader p_57176_, BlockPos p_57177_) {
-        BlockState soil = p_57176_.getBlockState(p_57177_.below());
-
-        BlockState blockstate = p_57176_.getBlockState(p_57177_.below());
-        if (blockstate.is(this)) {
-            return false;
-        } else {
-            if (blockstate.is(Blocks.END_STONE)) {
-                BlockPos blockpos = p_57177_.below();
-
-                return true;
-            }
-            return false;
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (!state.canSurvive(level, pos)) {
+            level.destroyBlock(pos, true);
         }
+    }
+    public BlockState updateShape(BlockState currentBlockState, Direction direction, BlockState neighborBlockState, LevelAccessor world, BlockPos currentPos, BlockPos neighborPos) {
+        if (!currentBlockState.canSurvive(world, currentPos)) {
+            world.scheduleTick(currentPos, this, 1);
+        }
+
+        return super.updateShape(currentBlockState, direction, neighborBlockState, world, currentPos, neighborPos);
+    }
+    @Override
+    public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
+        BlockState belowBlockState = levelReader.getBlockState(blockPos.below());
+        return belowBlockState.is(Blocks.END_STONE);
     }
     @Override
     public net.minecraftforge.common.PlantType getPlantType(BlockGetter world, BlockPos pos) {

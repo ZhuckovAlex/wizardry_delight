@@ -1,6 +1,7 @@
 package net.sanberdir.wizardrydelight.common.blocks.customBlocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
@@ -50,33 +51,36 @@ public class GoldenRoseInactive extends Block implements net.minecraftforge.comm
         }
     }
 
-    @Override
-    public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
-        super.tick(blockstate, world, pos, random);
-        // Превращаем блок в MEADOW_GOLDEN_FLOWER
-        Block block = Block.byItem(InitItemsWD.MEADOW_GOLDEN_FLOWER.get());
-        world.setBlockAndUpdate(pos, block.defaultBlockState());
-    }
 
     @Override
     public ItemStack getCloneItemStack(BlockState state, HitResult target, BlockGetter world, BlockPos pos, Player player) {
         return new ItemStack(InitItemsWD.MEADOW_GOLDEN_FLOWER.get());
     }
-
-    public boolean canSurvive(BlockState p_57175_, LevelReader p_57176_, BlockPos p_57177_) {
-        BlockState soil = p_57176_.getBlockState(p_57177_.below());
-
-        BlockState blockstate = p_57176_.getBlockState(p_57177_.below());
-        if (blockstate.is(this)) {
-            return false;
+    @Override
+    public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
+        // Выполняем проверку на то, что блок может выжить
+        if (blockstate.canSurvive(world, pos)) {
+            // Если блок может выжить, вызываем супер-метод для выполнения уже существующей логики
+            super.tick(blockstate, world, pos, random);
+            // Превращаем блок в MEADOW_GOLDEN_FLOWER
+            Block block = Block.byItem(InitItemsWD.MEADOW_GOLDEN_FLOWER.get());
+            world.setBlockAndUpdate(pos, block.defaultBlockState());
         } else {
-            if (blockstate.is(Blocks.SOUL_SOIL)||blockstate.is(Blocks.SOUL_SAND)|| blockstate.is(BlockTags.NYLIUM)|| blockstate.is(BlockTags.SAND)||blockstate.is(Blocks.DIRT)||blockstate.is(Blocks.GRASS_BLOCK)) {
-                BlockPos blockpos = p_57177_.below();
-
-                return true;
-            }
-            return false;
+            // Если блок не может выжить, уничтожаем его
+            world.destroyBlock(pos, true);
         }
+    }
+
+    public BlockState updateShape(BlockState currentBlockState, Direction direction, BlockState neighborBlockState, LevelAccessor world, BlockPos currentPos, BlockPos neighborPos) {
+        if (!currentBlockState.canSurvive(world, currentPos)) {
+            world.scheduleTick(currentPos, this, 1);
+        }
+
+        return super.updateShape(currentBlockState, direction, neighborBlockState, world, currentPos, neighborPos);
+    }
+    public boolean canSurvive(BlockState p_57175_, LevelReader levelReader, BlockPos blockPos) {
+        BlockState belowBlockState = levelReader.getBlockState(blockPos.below());
+        return belowBlockState.is(Blocks.SOUL_SOIL)||belowBlockState.is(Blocks.SOUL_SAND)|| belowBlockState.is(BlockTags.NYLIUM)|| belowBlockState.is(BlockTags.SAND)||belowBlockState.is(Blocks.DIRT)||belowBlockState.is(Blocks.GRASS_BLOCK);
     }
     @Override
     public PlantType getPlantType(BlockGetter world, BlockPos pos) {

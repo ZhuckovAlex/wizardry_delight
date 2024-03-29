@@ -1,7 +1,9 @@
 package net.sanberdir.wizardrydelight.common.blocks.customBlocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -10,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -26,21 +29,21 @@ public class GoldenRose extends Block implements net.minecraftforge.common.IPlan
         super(p_49795_);
     }
 
-
-    public boolean canSurvive(BlockState p_57175_, LevelReader p_57176_, BlockPos p_57177_) {
-        BlockState soil = p_57176_.getBlockState(p_57177_.below());
-
-        BlockState blockstate = p_57176_.getBlockState(p_57177_.below());
-        if (blockstate.is(this)) {
-            return false;
-        } else {
-            if (blockstate.is(Blocks.SOUL_SOIL)||blockstate.is(Blocks.SOUL_SAND)|| blockstate.is(BlockTags.NYLIUM)|| blockstate.is(BlockTags.SAND)||blockstate.is(Blocks.DIRT)||blockstate.is(Blocks.GRASS_BLOCK)) {
-                BlockPos blockpos = p_57177_.below();
-
-                return true;
-            }
-            return false;
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (!state.canSurvive(level, pos)) {
+            level.destroyBlock(pos, true);
         }
+    }
+    public BlockState updateShape(BlockState currentBlockState, Direction direction, BlockState neighborBlockState, LevelAccessor world, BlockPos currentPos, BlockPos neighborPos) {
+        if (!currentBlockState.canSurvive(world, currentPos)) {
+            world.scheduleTick(currentPos, this, 1);
+        }
+
+        return super.updateShape(currentBlockState, direction, neighborBlockState, world, currentPos, neighborPos);
+    }
+    public boolean canSurvive(BlockState p_57175_, LevelReader levelReader, BlockPos blockPos) {
+        BlockState belowBlockState = levelReader.getBlockState(blockPos.below());
+        return belowBlockState.is(Blocks.SOUL_SOIL)||belowBlockState.is(Blocks.SOUL_SAND)|| belowBlockState.is(BlockTags.NYLIUM)|| belowBlockState.is(BlockTags.SAND)||belowBlockState.is(Blocks.DIRT)||belowBlockState.is(Blocks.GRASS_BLOCK);
     }
     @Override
     public PlantType getPlantType(BlockGetter world, BlockPos pos) {

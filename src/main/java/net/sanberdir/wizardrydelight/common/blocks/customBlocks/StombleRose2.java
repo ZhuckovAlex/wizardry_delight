@@ -1,6 +1,7 @@
 package net.sanberdir.wizardrydelight.common.blocks.customBlocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
@@ -11,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -81,21 +83,41 @@ public class StombleRose2 extends Block implements net.minecraftforge.common.IPl
         else
             return 0;
     }
+    @Override
+    public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
+        // Вызываем супер-метод для выполнения уже существующей логики
+        super.tick(blockstate, world, pos, random);
 
-    public boolean canSurvive(BlockState p_57175_, LevelReader p_57176_, BlockPos p_57177_) {
-        BlockState soil = p_57176_.getBlockState(p_57177_.below());
+        // Получаем координаты позиции
+        int x = pos.getX();
+        int y = pos.getY();
+        int z = pos.getZ();
 
-        BlockState blockstate = p_57176_.getBlockState(p_57177_.below());
-        if (blockstate.is(this)) {
-            return false;
-        } else {
-            if (blockstate.is(Blocks.SOUL_SOIL))  {
-                BlockPos blockpos = p_57177_.below();
+        // Проверяем условие из первого класса
+        if (!blockstate.canSurvive(world, pos)) {
+            world.destroyBlock(pos, true);
 
-                return true;
-            }
-            return false;
         }
+        else {
+            // Если условие выполнено, можно просто вызвать вашу логику без проверки
+            WizardryDelight.queueServerWork(140, () -> {
+                StombleRoseDeactive.execute(world, x, y, z);
+            });
+            // Перезапускаем таймер для следующего вызова tick
+            world.scheduleTick(pos, this, 1);
+        }
+    }
+    public BlockState updateShape(BlockState currentBlockState, Direction direction, BlockState neighborBlockState, LevelAccessor world, BlockPos currentPos, BlockPos neighborPos) {
+        if (!currentBlockState.canSurvive(world, currentPos)) {
+            world.scheduleTick(currentPos, this, 1);
+        }
+
+        return super.updateShape(currentBlockState, direction, neighborBlockState, world, currentPos, neighborPos);
+    }
+    @Override
+    public boolean canSurvive(BlockState blockState, LevelReader levelReader, BlockPos blockPos) {
+        BlockState belowBlockState = levelReader.getBlockState(blockPos.below());
+        return belowBlockState.is(Blocks.SOUL_SOIL);
     }
     @Override
     public PlantType getPlantType(BlockGetter world, BlockPos pos) {
@@ -115,17 +137,7 @@ public class StombleRose2 extends Block implements net.minecraftforge.common.IPl
 
     }
 
-    @Override
-    public void tick(BlockState blockstate, ServerLevel world, BlockPos pos, RandomSource random) {
-        super.tick(blockstate, world, pos, random);
-        int x = pos.getX();
-        int y = pos.getY();
-        int z = pos.getZ();
-        WizardryDelight.queueServerWork(140, () -> {
-               StombleRoseDeactive.execute(world, x, y, z);
-        });
-        world.scheduleTick(pos, this, 1);
-    }
+
 
 
 

@@ -1,7 +1,10 @@
 package net.sanberdir.wizardrydelight.common.blocks.customBlocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -9,6 +12,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -23,21 +27,21 @@ public class SoulRose extends Block implements net.minecraftforge.common.IPlanta
     public SoulRose(Properties p_49795_) {
         super(p_49795_);
     }
-
-    public boolean canSurvive(BlockState p_57175_, LevelReader p_57176_, BlockPos p_57177_) {
-        BlockState soil = p_57176_.getBlockState(p_57177_.below());
-
-        BlockState blockstate = p_57176_.getBlockState(p_57177_.below());
-        if (blockstate.is(this)) {
-            return false;
-        } else {
-            if (blockstate.is(Blocks.SOUL_SAND)|| blockstate.is(Blocks.SOUL_SOIL)) {
-                BlockPos blockpos = p_57177_.below();
-
-                return true;
-            }
-            return false;
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (!state.canSurvive(level, pos)) {
+            level.destroyBlock(pos, true);
         }
+    }
+    public BlockState updateShape(BlockState currentBlockState, Direction direction, BlockState neighborBlockState, LevelAccessor world, BlockPos currentPos, BlockPos neighborPos) {
+        if (!currentBlockState.canSurvive(world, currentPos)) {
+            world.scheduleTick(currentPos, this, 1);
+        }
+
+        return super.updateShape(currentBlockState, direction, neighborBlockState, world, currentPos, neighborPos);
+    }
+    public boolean canSurvive(BlockState p_57175_, LevelReader levelReader, BlockPos blockPos) {
+        BlockState belowBlockState = levelReader.getBlockState(blockPos.below());
+        return belowBlockState.is(Blocks.SOUL_SOIL)||belowBlockState.is(Blocks.SOUL_SAND);
     }
     @Override
     public net.minecraftforge.common.PlantType getPlantType(BlockGetter world, BlockPos pos) {

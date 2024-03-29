@@ -9,8 +9,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -78,13 +80,12 @@ public class FlameArrow extends AbstractArrow {
     @Override
     protected void onHitEntity(EntityHitResult result) {
         super.onHitEntity(result);
-        Entity entity = result.getEntity();
+        Entity targetEntity = result.getEntity();
 
-        // Проверяем, что сущность может быть поджегнута
-        if (entity instanceof LivingEntity) {
-            // Применяем урон и поджигаем сущность
-            entity.setSecondsOnFire(5); // Например, поджигаем на 5 секунд
+        if (targetEntity instanceof LivingEntity) {
+            LivingEntity livingTarget = (LivingEntity) targetEntity;
+            livingTarget.setSecondsOnFire(10); // Поджигаем цель на 5 секунд
+
         }
     }
-
 }
